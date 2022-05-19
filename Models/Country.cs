@@ -2,7 +2,7 @@ namespace CountryCuisine.Models
 {
     public class Country
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PhotoUrl { get; set; }
         public string FlagUrl { get; set; }
