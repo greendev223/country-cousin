@@ -33,8 +33,8 @@ header {
   background-color: var(--turquoise);
   margin-top: -15px;
   position: sticky;
-  border-bottom: 1px solid rgba(93, 91, 91, 0.319);
-  box-shadow: 0 0.5rem 1.25rem rgba(67, 65, 65, 0.05);
+  border-bottom: 1px solid var(--yellow-green);
+  box-shadow: 0 0.5rem 1.25rem rgba(183, 181, 181, 0.576);
 }
 
 h4 {
@@ -55,12 +55,6 @@ li {
   margin-left: 5px;
 }
 
-section {
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
-}
-
 .welcome {
   background-image: url(/src/images/worldMap.svg);
   background-repeat: no-repeat;
@@ -73,10 +67,10 @@ section {
   flex-direction: column;
 }
 .about {
-  background-color: var(--lite-gray);
+  background-color: rgba(179, 220, 216, 0.379);
+  border: 3px solid var(--yellow-green);
   padding-bottom: 20px;
-  margin-bottom: 80px;
-  padding-top: 20px;
+  padding-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   font: 1em/1 'Roboto Flex', sans-serif;
@@ -101,7 +95,7 @@ section div button {
   background-color: var(--dark-gray);
   color: var(--lite-gray);
   border-radius: 12px;
-  border: 2px solid var(--turquoise);
+  border: 2px solid var(--yellow-green);
   padding: 7px;
   margin-top: -25px;
   text-align: center;
@@ -127,6 +121,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+  border-top: 1px solid var(--yellow-green);
 }
 
 footer div {
@@ -148,7 +143,7 @@ a {
 @media (min-width: 768px) {
   .welcome {
     padding: 100px;
-    background-size: 50%;
+    background-size: 90%;
     font: 2.1em/1.2 'Roboto Flex', sans-serif;
   }
 
@@ -191,9 +186,9 @@ a {
   .about {
     background-color: rgba(179, 220, 216, 0.379);
     border: 3px solid var(--yellow-green);
-    padding-bottom: 120px;
+    padding-bottom: 20px;
     padding-top: 10px;
-    margin-top: -40px;
+    margin-top: -20px;
     margin-left: 80px;
     margin-right: 80px;
     font: 1.4em/1 'Roboto Flex', sans-serif;
