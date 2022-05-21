@@ -4,6 +4,10 @@
   font: 16px / 1 'Roboto Flex', sans-serif;
   --beige: rgb(191, 189, 186);
   --mint: rgb(180, 205, 180);
+  --turquoise: rgb(179, 220, 216);
+  --yellow-green: rgb(222, 223, 147);
+  --lite-gray: rgb(217, 217, 222);
+  --dark-gray: rgb(86, 89, 94);
 }
 
 html {
@@ -13,7 +17,8 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background-image: url(/src/images/food.png);
+  background-color: var(--lite-gray);
+  // background-image: url(/src/images/food.png);
   // background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -25,7 +30,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--mint);
+  background-color: var(--turquoise);
   margin-top: -15px;
   position: sticky;
   border-bottom: 1px solid rgba(93, 91, 91, 0.319);
@@ -60,7 +65,7 @@ section {
   background-image: url(/src/images/worldMap.svg);
   background-repeat: no-repeat;
   background-position: 40%;
-  background-color: var(--beige);
+  background-color: var(--lite-gray);
   background-size: cover;
   padding: 35px;
   font: 21px/1 'Roboto Flex', sans-serif;
@@ -68,7 +73,7 @@ section {
   flex-direction: column;
 }
 .about {
-  background-color: rgba(191, 189, 186, 0.92);
+  background-color: var(--lite-gray);
   padding-bottom: 20px;
   margin-bottom: 80px;
   padding-top: 20px;
@@ -79,7 +84,7 @@ section {
 
 section div h5 {
   text-align: center;
-  background-color: rgba(180, 205, 180, 0.331);
+  // background-color: rgba(179, 220, 216, 0.379);
   border-radius: 15px;
   font-size: 1.1em;
   padding: 10px;
@@ -93,10 +98,10 @@ section div h6 {
 
 section div button {
   font: 0.7em /1 'Roboto Flex', sans-serif;
-  background-color: black;
-  color: var(--beige);
+  background-color: var(--dark-gray);
+  color: var(--lite-gray);
   border-radius: 12px;
-  border: 2px solid var(--mint);
+  border: 2px solid var(--turquoise);
   padding: 7px;
   margin-top: -25px;
   text-align: center;
@@ -116,7 +121,7 @@ footer {
   bottom: 0;
   position: fixed;
   width: 100%;
-  background-color: var(--mint);
+  background-color: var(--turquoise);
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: space-between;
@@ -172,9 +177,9 @@ a {
   section div button {
     font: 0.7em /1 'Roboto Flex', sans-serif;
     background-color: black;
-    color: var(--beige);
+    color: var(--lite-gray);
     border-radius: 12px;
-    border: 2px solid var(--mint);
+    border: 2px solid var(--yellow-green);
     padding: 5px;
     margin-top: -20px;
     text-align: center;
@@ -184,10 +189,11 @@ a {
     // width: 75px;
   }
   .about {
-    background-color: rgba(191, 189, 186, 0.92);
-    border: 3px solid var(--mint);
+    background-color: rgba(179, 220, 216, 0.379);
+    border: 3px solid var(--yellow-green);
     padding-bottom: 120px;
-    padding-top: 20px;
+    padding-top: 10px;
+    margin-top: -40px;
     margin-left: 80px;
     margin-right: 80px;
     font: 1.4em/1 'Roboto Flex', sans-serif;
