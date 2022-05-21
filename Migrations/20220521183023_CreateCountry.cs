@@ -76,7 +76,7 @@ namespace CountryCuisine.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Added = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     Url = table.Column<string>(type: "text", nullable: true),
                     PhotoUrl = table.Column<string>(type: "text", nullable: true),

@@ -5,7 +5,7 @@ namespace CountryCuisine.Models
     public class Recipe
     {
         public int Id { get; set; }
-        public DateTime Added { get; set; } = DateTime.Now;
+        public DateTime DateAdded { get; set; } = DateTime.Now;
         public string Name { get; set; }
         public string Url { get; set; }
         public string PhotoUrl { get; set; }

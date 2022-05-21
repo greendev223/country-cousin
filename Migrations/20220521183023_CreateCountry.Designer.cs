@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220521181033_CreateCountry")]
+    [Migration("20220521183023_CreateCountry")]
     partial class CreateCountry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,11 +110,11 @@ namespace CountryCuisine.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("Added")
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<int>("CountryId")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
