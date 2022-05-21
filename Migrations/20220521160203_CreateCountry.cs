@@ -18,8 +18,10 @@ namespace CountryCuisine.Migrations
                     FlagUrl = table.Column<string>(type: "text", nullable: true),
                     RecipeName = table.Column<string>(type: "text", nullable: true),
                     RecipeUrl = table.Column<string>(type: "text", nullable: true),
-                    MovieTitle = table.Column<string>(type: "text", nullable: true),
-                    Musician = table.Column<string>(type: "text", nullable: true)
+                    Movie = table.Column<string>(type: "text", nullable: true),
+                    MovieDescription = table.Column<string>(type: "text", nullable: true),
+                    Musician = table.Column<string>(type: "text", nullable: true),
+                    MusicianDescription = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

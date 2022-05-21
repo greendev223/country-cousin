@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220519170712_CreateCountry")]
+    [Migration("20220521160203_CreateCountry")]
     partial class CreateCountry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,10 +30,16 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("FlagUrl")
                         .HasColumnType("text");
 
-                    b.Property<string>("MovieTitle")
+                    b.Property<string>("Movie")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MovieDescription")
                         .HasColumnType("text");
 
                     b.Property<string>("Musician")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MusicianDescription")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")

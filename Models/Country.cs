@@ -8,7 +8,9 @@ namespace CountryCuisine.Models
         public string FlagUrl { get; set; }
         public string RecipeName { get; set; }
         public string RecipeUrl { get; set; }
-        public string MovieTitle { get; set; }
+        public string Movie { get; set; }
+        public string MovieDescription { get; set; }
         public string Musician { get; set; }
+        public string MusicianDescription { get; set; }
     }
 }

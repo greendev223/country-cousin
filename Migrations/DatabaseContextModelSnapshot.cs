@@ -28,10 +28,16 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("FlagUrl")
                         .HasColumnType("text");
 
-                    b.Property<string>("MovieTitle")
+                    b.Property<string>("Movie")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MovieDescription")
                         .HasColumnType("text");
 
                     b.Property<string>("Musician")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MusicianDescription")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
