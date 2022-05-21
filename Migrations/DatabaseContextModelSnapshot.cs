@@ -62,6 +62,9 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
@@ -88,6 +91,9 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
@@ -102,13 +108,19 @@ namespace CountryCuisine.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<int>("CountryId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Url")

@@ -8,6 +8,7 @@ namespace CountryCuisine.Models
         public DateTime DateAdded { get; set; } = DateTime.Now;
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Url { get; set; }
 
         public int CountryId { get; set; }
 

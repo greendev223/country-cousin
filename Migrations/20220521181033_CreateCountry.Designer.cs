@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220521171039_CreateCountry")]
+    [Migration("20220521181033_CreateCountry")]
     partial class CreateCountry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,9 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
@@ -90,6 +93,9 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
@@ -104,13 +110,19 @@ namespace CountryCuisine.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<int>("CountryId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Url")

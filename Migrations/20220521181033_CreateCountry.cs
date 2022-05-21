@@ -33,6 +33,7 @@ namespace CountryCuisine.Migrations
                     DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
+                    Url = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -55,6 +56,7 @@ namespace CountryCuisine.Migrations
                     DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Artist = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
+                    Url = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -74,9 +76,11 @@ namespace CountryCuisine.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Added = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     Url = table.Column<string>(type: "text", nullable: true),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
