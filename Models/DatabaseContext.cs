@@ -15,6 +15,9 @@ namespace CountryCuisine.Models
 
         // Add database tables here
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Music> Musics { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
