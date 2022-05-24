@@ -140,17 +140,33 @@ a {
   font-size: 24px;
 }
 
+// Countries Page
+
 article {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
 }
 
 ul.search {
-  // display: flex;
   flex-direction: column;
-  // margin-top: 5px;
+  margin-left: -30px;
 }
 
+.flag {
+  margin-top: 4px;
+}
+
+// Media Query
 @media (min-width: 768px) {
+  body {
+    background-image: url(/src/images/worldMap.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
   .welcome {
     padding: 100px;
     background-size: 90%;
@@ -205,5 +221,13 @@ ul.search {
   }
   footer {
     font-size: 14px;
+  }
+
+  // Countries Page
+  article {
+    font-size: 40px;
+  }
+  img {
+    width: 300px;
   }
 }

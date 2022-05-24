@@ -16,11 +16,23 @@ export function Countries() {
   return (
     <div>
       <article>
-        <ul className="search">
-          <li>Country1</li>
-          <li>Country2</li>
-          <li>Country3</li>
-        </ul>
+        {countries
+          .sort((a, b) => (a.name > b.name ? 1 : 0))
+          .map((country) => {
+            return (
+              <ul key={country.id} className="search">
+                <li>{country.name}</li>
+                <li className="flag">
+                  <img
+                    className=""
+                    src={country.flagUrl}
+                    alt="image of ${country.name}'s flag"
+                    width="150"
+                  />
+                </li>
+              </ul>
+            )
+          })}
       </article>
     </div>
   )
