@@ -1,5 +1,5 @@
 import React from 'react'
-import { Landing } from './pages/Landing'
+// import { Landing } from './pages/Landing'
 
 export function App() {
   return (
@@ -18,7 +18,13 @@ export function App() {
           </ul>
         </nav>
       </header>
-      <Landing />
+      <article>
+        <ul className="search">
+          <li>Country1</li>
+          <li>Country2</li>
+          <li>Country3</li>
+        </ul>
+      </article>
       <footer>
         <div>
           made by <br /> lauren mccall

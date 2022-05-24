@@ -140,6 +140,16 @@ a {
   font-size: 24px;
 }
 
+article {
+  display: flex;
+}
+
+ul.search {
+  // display: flex;
+  flex-direction: column;
+  // margin-top: 5px;
+}
+
 @media (min-width: 768px) {
   .welcome {
     padding: 100px;
