@@ -2,24 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 
 import { CountryType /*CSSStarsProperties*/ } from '../types'
-
-type SingleCountryFromListProps = {
-  country: CountryType
-}
-function SingleCountryFromList(props: SingleCountryFromListProps) {
-  return (
-    <ul className="search">
-      <li>{props.country.name}</li>
-      <li className="flag">
-        <img
-          src={props.country.flagUrl}
-          alt="image of ${country.name}'s flag"
-          width="150"
-        />
-      </li>
-    </ul>
-  )
-}
+import { SingleCountryFromList } from '../components/SingleCountryFromList'
 
 export function Countries() {
   const { data: countries = [] } = useQuery<CountryType[]>(

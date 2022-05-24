@@ -148,6 +148,12 @@ article {
   align-items: center;
   font-size: 24px;
   text-align: center;
+  background-image: url(/src/images/worldMap.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 60%;
+  // background-size: 200%;
 }
 
 ul.search {
