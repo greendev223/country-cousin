@@ -1,24 +1,39 @@
 import React from 'react'
+import { Route, Routes } from 'react-router'
+import { Link } from 'react-router-dom'
 import { Countries } from './pages/Countries'
+
+import { Landing } from './pages/Landing'
 
 export function App() {
   return (
     <div>
       <header>
-        <h4>
-          Country <br /> Cuisine <br /> Night
-        </h4>
+        <Link to="/">
+          <h4>
+            Country <br /> Cuisine <br /> Night
+          </h4>
+        </Link>
         <nav>
           <ul>
-            <li>Home</li>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
             <li>|</li>
             <li>Add</li>
             <li>|</li>
-            <li>Find</li>
+            <Link to="/search">
+              <li>Search</li>
+            </Link>
           </ul>
         </nav>
       </header>
-      <Countries />
+      <main>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/:search" element={<Countries />} />
+        </Routes>
+      </main>
       <footer>
         <div>
           made by <br /> lauren mccall

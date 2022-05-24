@@ -8,7 +8,7 @@ export function Landing() {
           Welcome to <br /> Country Cuisine Night
         </h5>
         <h6>
-          traveling the world <br /> one night-in at a time
+          experiencing the world <br /> one night-in at a time
         </h6>
         <button>
           <div>login</div>

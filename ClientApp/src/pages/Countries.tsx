@@ -10,30 +10,29 @@ export function Countries() {
   const { data: countries = [] } = useQuery<CountryType[]>(
     ['countries', filterText],
     async function () {
-      let url = '/api/countries'
-
-      if (filterText.length !== 0) {
-        url = `/api/countries?filter=${filterText}`
-      }
-
-      const response = await fetch(url)
+      const response = await fetch(
+        filterText.length === 0
+          ? '/api/countries'
+          : `/api/countries?filter=${filterText}`
+      )
       return response.json()
     }
   )
 
   return (
     <div>
-      <form>
+      <form className="search">
         <input
+          className="search"
           type="text"
-          placeholder="Search..."
+          placeholder="search by country"
           value={filterText}
           onChange={function (event) {
             setFilterText(event.target.value)
           }}
         />
       </form>
-      <article>
+      <article className="countries">
         {countries
           .sort((a, b) => (a.name > b.name ? 1 : 0))
           .map((country) => {
