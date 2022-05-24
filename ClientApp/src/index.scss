@@ -31,8 +31,9 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: var(--turquoise);
-  margin-top: -15px;
+  margin-top: 0px;
   position: sticky;
+  top: 0;
   border-bottom: 1px solid var(--yellow-green);
   box-shadow: 0 0.5rem 1.25rem rgba(183, 181, 181, 0.576);
 }
@@ -40,14 +41,15 @@ header {
 h4 {
   font: 24px/1 'Koulen', cursive;
   margin-left: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 ul {
   display: flex;
   list-style: none;
   margin-right: 5px;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
 }
 
 li {
@@ -122,6 +124,7 @@ footer {
   align-items: center;
   font-size: 12px;
   border-top: 1px solid var(--yellow-green);
+  margin-top: 30px;
 }
 
 footer div {
@@ -153,7 +156,7 @@ article {
   background-size: cover;
   background-attachment: fixed;
   background-position: 60%;
-  // background-size: 200%;
+  margin-bottom: 60px;
 }
 
 ul.search {
@@ -232,7 +235,10 @@ ul.search {
   // Countries Page
   article {
     font-size: 40px;
+    // QUESTION: Not Working-- still no space between last flag and footer
+    margin-bottom: 300px;
   }
+
   img {
     width: 300px;
   }
