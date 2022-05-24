@@ -37,15 +37,17 @@ namespace CountryCuisine.Controllers
             // them by row id and return them as a JSON array.
             if (filter == null)
             {
-                return await _context.Countries.OrderBy(row => row.Id).ToListAsync();
+                return await _context.Countries.OrderBy(row => row.Id).Include(country => country.Movies).Include(pet => pet.Musics).Include(pet => pet.Recipes).ToListAsync();
             }
             else
             {
                 return await _context.Countries.OrderBy(row => row.Id).
-                Where(country => country.Name.ToLower().Contains(filter.ToLower())).
+                Where(country => country.Name.ToLower().Contains(filter.ToLower())).Include(country => country.Movies).Include(pet => pet.Musics).Include(pet => pet.Recipes).
                 ToListAsync();
             }
         }
+
+        // return await _context.Pets.OrderBy(row => row.Id).Include(pet => pet.Playtimes).Include(pet => pet.Feedings).Include(pet => pet.Scoldings).ToListAsync();
 
         // GET: api/Countries/5
         //
