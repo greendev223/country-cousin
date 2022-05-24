@@ -31,11 +31,20 @@ namespace CountryCuisine.Controllers
         // Returns a list of all your Countries
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Country>>> GetCountries()
+        public async Task<ActionResult<IEnumerable<Country>>> GetCountries(string filter)
         {
             // Uses the database context in `_context` to request all of the Countries, sort
             // them by row id and return them as a JSON array.
-            return await _context.Countries.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                return await _context.Countries.OrderBy(row => row.Id).ToListAsync();
+            }
+            else
+            {
+                return await _context.Countries.OrderBy(row => row.Id).
+                Where(country => country.Name.ToLower().Contains(filter.ToLower())).
+                ToListAsync();
+            }
         }
 
         // GET: api/Countries/5
@@ -197,7 +206,7 @@ namespace CountryCuisine.Controllers
             }
         }
 
-        [HttpPost("{id}/Musics")]
+        [HttpPost("{id}/Music")]
         public async Task<ActionResult<Music>> CreateMusicForCountry(int id, Music country)
         {
             {
