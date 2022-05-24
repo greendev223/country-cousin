@@ -3,6 +3,24 @@ import { useQuery } from 'react-query'
 
 import { CountryType /*CSSStarsProperties*/ } from '../types'
 
+type SingleCountryFromListProps = {
+  country: CountryType
+}
+function SingleCountryFromList(props: SingleCountryFromListProps) {
+  return (
+    <ul className="search">
+      <li>{props.country.name}</li>
+      <li className="flag">
+        <img
+          src={props.country.flagUrl}
+          alt="image of ${country.name}'s flag"
+          width="150"
+        />
+      </li>
+    </ul>
+  )
+}
+
 export function Countries() {
   const { data: countries = [] } = useQuery<CountryType[]>(
     'countries',
@@ -19,19 +37,7 @@ export function Countries() {
         {countries
           .sort((a, b) => (a.name > b.name ? 1 : 0))
           .map((country) => {
-            return (
-              <ul key={country.id} className="search">
-                <li>{country.name}</li>
-                <li className="flag">
-                  <img
-                    className=""
-                    src={country.flagUrl}
-                    alt="image of ${country.name}'s flag"
-                    width="150"
-                  />
-                </li>
-              </ul>
-            )
+            return <SingleCountryFromList key={country.id} country={country} />
           })}
       </article>
     </div>
