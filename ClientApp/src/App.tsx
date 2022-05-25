@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import { Link } from 'react-router-dom'
-import { Countries } from './pages/Countries'
 
+import { Countries } from './pages/Countries'
 import { Landing } from './pages/Landing'
 
 export function App() {
