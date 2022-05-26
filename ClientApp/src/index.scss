@@ -183,6 +183,22 @@ input.search {
   padding-bottom: 7px;
 }
 
+// AddCountry
+form.addCountry {
+  display: flex;
+  flex-direction: column;
+}
+p.addCountry {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+input.addCountry {
+  margin-top: 2px;
+}
+
 // Media Query
 @media (min-width: 768px) {
   body {

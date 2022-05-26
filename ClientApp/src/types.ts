@@ -5,7 +5,7 @@ export interface CSSStarsProperties extends CSSProperties {
 }
 
 export type CountryType = {
-  id: number
+  id: number | undefined
   dateAdded: string
   name: string
   photoUrl: string
@@ -16,25 +16,27 @@ export type CountryType = {
 }
 
 export type MovieType = {
-  id: number
+  id: number | undefined
   dateAdded: string
   title: string
   description: string
   url: string
+  photoUrl: string
   countryId: number
 }
 
 export type MusicType = {
-  id: number
+  id: number | undefined
   dateAdded: string
   artist: string
   description: string
   url: string
+  photoUrl: string
   countryId: number
 }
 
 export type RecipeType = {
-  id: number
+  id: number | undefined
   dateAdded: string
   name: string
   url: string

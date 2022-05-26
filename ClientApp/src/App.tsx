@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Countries } from './pages/Countries'
 import { Landing } from './pages/Landing'
+import { AddCountry } from './pages/AddCountry'
 
 export function App() {
   return (
@@ -20,7 +21,9 @@ export function App() {
               <li>Home</li>
             </Link>
             <li>|</li>
-            <li>Add</li>
+            <Link to="/add">
+              <li>Add</li>
+            </Link>
             <li>|</li>
             <Link to="/search">
               <li>Search</li>
@@ -32,6 +35,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/:search" element={<Countries />} />
+          <Route path="/add" element={<AddCountry />} />
         </Routes>
       </main>
       <footer>
