@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CountryCuisine.Models
 {
@@ -7,8 +8,12 @@ namespace CountryCuisine.Models
     {
         public int Id { get; set; }
         public DateTime DateAdded { get; set; } = DateTime.Now;
+       
+       [Required(ErrorMessage = "You must provide a country name. ")]
         public string Name { get; set; }
         public string PhotoUrl { get; set; }
+
+       [Required(ErrorMessage = "You must provide a flag image url. ")]
         public string FlagUrl { get; set; }
 
         public List<Recipe> Recipes { get; set; }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { CountryType } from '../types'
+import { APIError, CountryType } from '../types'
 
 async function submitNewCountry(countryToCreate: CountryType) {
   const response = await fetch('/api/Countries', {
@@ -9,7 +9,12 @@ async function submitNewCountry(countryToCreate: CountryType) {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(countryToCreate),
   })
-  return response.json
+
+  if (response.ok) {
+    return response.json()
+  } else {
+    throw await response.json()
+  }
 }
 
 export function AddCountry() {
@@ -26,12 +31,19 @@ export function AddCountry() {
     musics: undefined,
   })
 
+  const [errorMessage, setErrorMessage] = useState('')
+
   // QUESTION: Add form fields for other tables/arrays within CountryType?
   const createNewCountry = useMutation(submitNewCountry, {
     onSuccess: function () {
       history('/')
     },
+    onError: function (apiError: APIError) {
+      setErrorMessage(Object.values(apiError.errors).join(' '))
+    },
   })
+
+  console.log(errorMessage)
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -51,6 +63,7 @@ export function AddCountry() {
   }
   return (
     <div>
+      {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
       <form onSubmit={handleFormSubmit} className="addCountry">
         <p className="addCountry">
           <label htmlFor="country">name</label>
