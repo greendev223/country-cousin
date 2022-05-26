@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
+import { useNavigate } from 'react-router'
 import { CountryType } from '../types'
 
 async function submitNewCountry(countryToCreate: CountryType) {
@@ -12,6 +13,8 @@ async function submitNewCountry(countryToCreate: CountryType) {
 }
 
 export function AddCountry() {
+  const history = useNavigate()
+
   const [newCountry, setNewCountry] = useState<CountryType>({
     id: undefined,
     dateAdded: undefined,
@@ -24,7 +27,11 @@ export function AddCountry() {
   })
 
   // QUESTION: Add form fields for other tables/arrays within CountryType?
-  const createNewCountry = useMutation(submitNewCountry)
+  const createNewCountry = useMutation(submitNewCountry, {
+    onSuccess: function () {
+      history('/')
+    },
+  })
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
