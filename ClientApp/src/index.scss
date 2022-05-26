@@ -197,6 +197,20 @@ p.addCountry {
 }
 input.addCountry {
   margin-top: 2px;
+  border: 2px solid var(--turquoise);
+  border-radius: 5px;
+  padding: 6px;
+}
+button.addCountry {
+  margin-left: 10px;
+  margin-top: 15px;
+  font: 0.8em /1 'Roboto Flex', sans-serif;
+  background-color: black;
+  color: var(--lite-gray);
+  border-radius: 12px;
+  border: 2px solid var(--yellow-green);
+  padding: 7px;
+  cursor: pointer;
 }
 
 // Media Query
@@ -277,5 +291,19 @@ input.addCountry {
 
   img {
     width: 300px;
+  }
+
+  // AddCountry page
+
+  p.addCountry {
+    font: 1.3em /1 'Roboto Flex', sans-serif;
+    padding-left: 50px;
+    padding-right: 345px;
+  }
+  button.addCountry {
+    margin-left: 50px;
+    margin-top: 15px;
+    font: 1em /1 'Roboto Flex', sans-serif;
+    padding: 8px;
   }
 }
