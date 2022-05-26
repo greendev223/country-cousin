@@ -59,6 +59,9 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("text");
+
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
@@ -89,6 +92,9 @@ namespace CountryCuisine.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Url")
@@ -136,7 +142,7 @@ namespace CountryCuisine.Migrations
             modelBuilder.Entity("CountryCuisine.Models.Movie", b =>
                 {
                     b.HasOne("CountryCuisine.Models.Country", "Country")
-                        .WithMany()
+                        .WithMany("Movies")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -147,7 +153,7 @@ namespace CountryCuisine.Migrations
             modelBuilder.Entity("CountryCuisine.Models.Music", b =>
                 {
                     b.HasOne("CountryCuisine.Models.Country", "Country")
-                        .WithMany()
+                        .WithMany("Musics")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -158,12 +164,21 @@ namespace CountryCuisine.Migrations
             modelBuilder.Entity("CountryCuisine.Models.Recipe", b =>
                 {
                     b.HasOne("CountryCuisine.Models.Country", "Country")
-                        .WithMany()
+                        .WithMany("Recipes")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("CountryCuisine.Models.Country", b =>
+                {
+                    b.Navigation("Movies");
+
+                    b.Navigation("Musics");
+
+                    b.Navigation("Recipes");
                 });
 #pragma warning restore 612, 618
         }

@@ -34,6 +34,7 @@ namespace CountryCuisine.Migrations
                     Title = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     Url = table.Column<string>(type: "text", nullable: true),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -57,6 +58,7 @@ namespace CountryCuisine.Migrations
                     Artist = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     Url = table.Column<string>(type: "text", nullable: true),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
