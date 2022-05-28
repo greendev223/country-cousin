@@ -20,25 +20,29 @@ export function Countries() {
   )
 
   return (
-    <div>
-      <form className="search">
-        <input
-          className="search"
-          type="text"
-          placeholder="search by country"
-          value={filterText}
-          onChange={function (event) {
-            setFilterText(event.target.value)
-          }}
-        />
-      </form>
-      <article className="countries">
-        {countries
-          .sort((a, b) => (a.name > b.name ? 1 : 0))
-          .map((country) => {
-            return <SingleCountryFromList key={country.id} country={country} />
-          })}
-      </article>
+    <div className="search-image">
+      <div>
+        <form className="search">
+          <input
+            className="search "
+            type="text"
+            placeholder="search by country"
+            value={filterText}
+            onChange={function (event) {
+              setFilterText(event.target.value)
+            }}
+          />
+        </form>
+        <article className="countries">
+          {countries
+            .sort((a, b) => (a.name > b.name ? 1 : 0))
+            .map((country) => {
+              return (
+                <SingleCountryFromList key={country.id} country={country} />
+              )
+            })}
+        </article>
+      </div>
     </div>
   )
 }

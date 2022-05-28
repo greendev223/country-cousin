@@ -171,7 +171,6 @@ namespace CountryCuisine.Controllers
             return Ok(country);
         }
 
-        // QUESTION: Why isn't this showing up in Insomnia?
         [HttpPost("{id}/Recipes")]
         public async Task<ActionResult<Recipe>> CreateRecipeForCountry(int id, Recipe country)
         {
@@ -208,7 +207,7 @@ namespace CountryCuisine.Controllers
             }
         }
 
-        [HttpPost("{id}/Music")]
+        [HttpPost("{id}/Musics")]
         public async Task<ActionResult<Music>> CreateMusicForCountry(int id, Music country)
         {
             {

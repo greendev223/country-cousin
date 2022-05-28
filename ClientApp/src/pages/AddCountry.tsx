@@ -22,13 +22,13 @@ export function AddCountry() {
 
   const [newCountry, setNewCountry] = useState<CountryType>({
     id: undefined,
-    dateAdded: undefined,
+    dateAdded: '',
     name: '',
     photoUrl: '',
     flagUrl: '',
-    recipes: undefined,
-    movies: undefined,
-    musics: undefined,
+    recipes: [],
+    movies: [],
+    musics: [],
   })
 
   const [errorMessage, setErrorMessage] = useState('')
@@ -76,22 +76,22 @@ export function AddCountry() {
           />
         </p>
         <p className="addCountry">
-          <label htmlFor="photoUrl">photo url</label>
-          <input
-            className="addCountry"
-            type="text"
-            name="photoUrl"
-            value={newCountry.photoUrl}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <p className="addCountry">
           <label htmlFor="flagUrl">flag url</label>
           <input
             className="addCountry"
             type="text"
             name="flagUrl"
             value={newCountry.flagUrl}
+            onChange={handleStringFieldChange}
+          />
+        </p>
+        <p className="addCountry">
+          <label htmlFor="photoUrl">photo url</label>
+          <input
+            className="addCountry"
+            type="text"
+            name="photoUrl"
+            value={newCountry.photoUrl}
             onChange={handleStringFieldChange}
           />
         </p>
