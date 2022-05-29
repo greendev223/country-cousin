@@ -37,12 +37,12 @@ namespace CountryCuisine.Controllers
             // them by row id and return them as a JSON array.
             if (filter == null)
             {
-                return await _context.Countries.OrderBy(row => row.Id).Include(country => country.Movies).Include(pet => pet.Musics).Include(pet => pet.Recipes).ToListAsync();
+                return await _context.Countries.OrderBy(row => row.Id).Include(country => country.Movies).Include(country => country.Musics).Include(country => country.Recipes).ToListAsync();
             }
             else
             {
                 return await _context.Countries.OrderBy(row => row.Id).
-                Where(country => country.Name.ToLower().Contains(filter.ToLower())).Include(country => country.Movies).Include(pet => pet.Musics).Include(pet => pet.Recipes).
+                Where(country => country.Name.ToLower().Contains(filter.ToLower())).Include(country => country.Movies).Include(country => country.Musics).Include(country => country.Recipes).
                 ToListAsync();
             }
         }
@@ -59,7 +59,9 @@ namespace CountryCuisine.Controllers
         public async Task<ActionResult<Country>> GetCountry(int id)
         {
             // Find the country in the database using `FindAsync` to look it up by id
-            var country = await _context.Countries.FindAsync(id);
+            var country = await _context.Countries.
+            Where(country => country.Id == id).Include(country => country.Musics).Include(country => country.Recipes).ToListAsync(id);
+            }
 
             // If we didn't find anything, we receive a `null` in return
             if (country == null)
@@ -71,6 +73,39 @@ namespace CountryCuisine.Controllers
             //  Return the country as a JSON object.
             return country;
         }
+
+        // [HttpGet("{id}/Recipes")]
+        // public async Task<ActionResult<Recipe>> GetRecipesForCountry(int id, Recipe country)
+        // {
+        //     {
+        //         var recipeCountry = await _context.Countries.ToListAsync(id);
+        //         if (recipeCountry == null)
+        //         {
+        //             return NotFound();
+        //         }
+        //         country.CountryId = recipeCountry.Id;
+
+        //         return recipeCountry;
+        //     }
+        // }
+
+        //   [HttpGet("{id}/Recipes")]
+        // public async Task<ActionResult<Recipe>> GetRecipeForCountry(int id, Recipe country)
+        // {
+        //     {
+        //         var recipeCountry = await _context.Countries.ToListAsync(id);
+        //         if (recipeCountry == null)
+        //         {
+        //             return NotFound();
+        //         }
+        //         country.CountryId = recipeCountry.Id;
+
+        //         // _context.Recipes.Add(country);
+        //         // await _context.SaveChangesAsync();
+
+        //         return recipeCountry;
+        //     }
+        // }
 
         // PUT: api/Countries/5
         //

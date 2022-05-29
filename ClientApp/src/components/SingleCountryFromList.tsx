@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import { CountryType /*CSSStarsProperties*/ } from '../types'
 
 export function SingleCountryFromList({ country }: { country: CountryType }) {
+  const urlForShowingCountry = `/countries/${country.id}`
+
   return (
     <ul className="search">
-      <li>{country.name}</li>
+      <li>
+        <Link to={urlForShowingCountry}>{country.name}</Link>
+      </li>
       <li className="flag">
         <img
           src={country.flagUrl}

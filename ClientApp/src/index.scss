@@ -138,15 +138,14 @@ a {
   margin-left: 10px;
   margin-right: 5px;
 }
-
 .icons {
   font-size: 24px;
 }
-article {
+article.countries {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 24px;
+  font: 24px/1 'Koulen', cursive;
   text-align: center;
   margin-bottom: 60px;
 }
@@ -225,9 +224,17 @@ button.addCountry {
 }
 
 // Country page
-.country-image {
+.country-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font: 3em/1 'Koulen', cursive;
+}
+.country-ml-5 {
+  margin-left: 5px;
+}
+.country-mr-5 {
+  margin-right: 5px;
 }
 
 // Media Query
@@ -295,17 +302,11 @@ button.addCountry {
   }
 
   // Countries Page
-  article {
-    font-size: 1.1em;
-    margin-bottom: 300px;
-  }
 
   article.countries {
     font-size: 2em;
-    // QUESTION: Not Working-- still no space between last flag and footer
-    margin-bottom: 300px;
+    padding-bottom: 80px;
   }
-
   img {
     width: 300px;
   }
@@ -327,5 +328,19 @@ button.addCountry {
     margin-top: 30px;
     margin-left: 50px;
     margin-right: 345px;
+  }
+
+  // Country page
+  .country-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 8em/1 'Koulen', cursive;
+  }
+  .country-ml-5 {
+    margin-left: 15px;
+  }
+  .country-mr-5 {
+    margin-right: 15px;
   }
 }

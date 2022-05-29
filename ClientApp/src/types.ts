@@ -42,7 +42,7 @@ export type RecipeType = {
   url: string
   photoUrl: string
   description: string
-  countryId: number
+  countryId: number | undefined
 }
 
 export type APIError = {
