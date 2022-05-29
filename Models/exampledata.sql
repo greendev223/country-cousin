@@ -1,13 +1,13 @@
 TRUNCATE TABLE "Countries", "Recipes", "Movies", "Musics" RESTART IDENTITY;
 
-INSERT INTO "Countries" ("DateAdded", "Name", "PhotoUrl", "FlagUrl")
-VALUES ('2022-05-21 14:28:01', 'Bolivia', 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2018/01/shutterstock_276872759-e1516063096495.jpg', 'https://www.worldatlas.com/r/w960-q80/img/flag/bo-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "PhotoUrl", "FlagUrl")
-VALUES ('2022-05-21 14:50:01', 'Denmark', 'https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Denmark.jpg?h=fa1c963e&itok=h7srHtpK', 'https://www.worldatlas.com/r/w960-q80/img/flag/dk-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "PhotoUrl", "FlagUrl")
-VALUES ('2022-05-21 15:18:01', 'Rwanda', 'https://deih43ym53wif.cloudfront.net/cityscape-things-to-do-in-kigali-rwanda_44e57bd0bf.jpeg', 'https://www.worldatlas.com/r/w960-q80/img/flag/rw-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "PhotoUrl", "FlagUrl")
-VALUES ('2022-05-24 14:15:01', 'Uzbekistan', 'https://cdn.britannica.com/01/137501-050-B02429E9/madrasa-Shirdar-Rigestan-Square-Samarkand-Uzbekistan.jpg?w=690&h=388&c=crop', 'https://www.worldatlas.com/r/w960-q80/img/flag/uz-flag.jpg');
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
+VALUES ('2022-05-21 14:28:01', 'Bolivia', 'https://www.worldatlas.com/r/w960-q80/img/flag/bo-flag.jpg');
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
+VALUES ('2022-05-21 14:50:01', 'Denmark', 'https://www.worldatlas.com/r/w960-q80/img/flag/dk-flag.jpg');
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
+VALUES ('2022-05-21 15:18:01', 'Rwanda', 'https://www.worldatlas.com/r/w960-q80/img/flag/rw-flag.jpg');
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
+VALUES ('2022-05-24 14:15:01', 'Uzbekistan', 'https://www.worldatlas.com/r/w960-q80/img/flag/uz-flag.jpg');
 
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")
 VALUES ('2022-05-21 14:28:01', 'Picante de Pollo', 'https://boliviancookbook.com/2012/04/01/picante-de-pollo/', 'https://boliviancookbook.files.wordpress.com/2012/04/plato-2.jpg?w=450&h=600', 'Spicy sauce with chicken', 1);

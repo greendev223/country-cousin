@@ -11,7 +11,6 @@ namespace CountryCuisine.Models
        
        [Required(ErrorMessage = "You must provide a country name. ")]
         public string Name { get; set; }
-        public string PhotoUrl { get; set; }
 
        [Required(ErrorMessage = "You must provide a flag image url. ")]
         public string FlagUrl { get; set; }

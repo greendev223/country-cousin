@@ -20,7 +20,6 @@ const NullCountry: CountryType = {
   id: undefined,
   dateAdded: '',
   name: '',
-  photoUrl: '',
   flagUrl: '',
   recipes: [],
   movies: [],

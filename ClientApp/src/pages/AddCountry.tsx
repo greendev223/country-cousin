@@ -24,7 +24,6 @@ export function AddCountry() {
     id: undefined,
     dateAdded: '',
     name: '',
-    photoUrl: '',
     flagUrl: '',
     recipes: [],
     movies: [],
@@ -85,16 +84,7 @@ export function AddCountry() {
             onChange={handleStringFieldChange}
           />
         </p>
-        <p className="addCountry">
-          <label htmlFor="photoUrl">photo url</label>
-          <input
-            className="addCountry"
-            type="text"
-            name="photoUrl"
-            value={newCountry.photoUrl}
-            onChange={handleStringFieldChange}
-          />
-        </p>
+
         {/* <p className="addCountry">
           <label htmlFor="">flag url</label>
           <input className="addCountry" type="text" name="flagUrl" />

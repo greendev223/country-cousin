@@ -8,7 +8,6 @@ export type CountryType = {
   id: number | undefined
   dateAdded: string
   name: string
-  photoUrl: string
   flagUrl: string
   recipes: RecipeType[]
   movies: MovieType[]

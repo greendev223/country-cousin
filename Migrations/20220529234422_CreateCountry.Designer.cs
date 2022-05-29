@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220526221325_AddCountryRequiredFields")]
-    partial class AddCountryRequiredFields
+    [Migration("20220529234422_CreateCountry")]
+    partial class CreateCountry
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,9 +37,6 @@ namespace CountryCuisine.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

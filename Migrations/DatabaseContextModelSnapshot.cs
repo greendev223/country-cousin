@@ -37,9 +37,6 @@ namespace CountryCuisine.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PhotoUrl")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
