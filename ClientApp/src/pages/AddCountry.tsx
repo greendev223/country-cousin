@@ -84,11 +84,6 @@ export function AddCountry() {
             onChange={handleStringFieldChange}
           />
         </p>
-
-        {/* <p className="addCountry">
-          <label htmlFor="">flag url</label>
-          <input className="addCountry" type="text" name="flagUrl" />
-        </p> */}
         <div>
           <button className="addCountry" name="submit">
             Submit

@@ -53,23 +53,11 @@ export function Country() {
         <img
           className="country-container country-mr-5"
           src={country.flagUrl}
-          alt="image of flag"
+          // alt="image of flag"
           width="74em"
         />
         <p className="country-ml-5">{country.name}</p>
       </section>
-      {/* <div> */}
-      {/* <p>
-            <img
-              className="country-image"
-              src={country.photoUrl}
-              width="100%"
-              // height="100px"
-              // QUESTION: How to hard-code alt
-              alt="image of country"
-            />
-          </p> */}
-      {/* </div> */}
       <div>
         <section>
           {recipes?.map((recipe) => (
