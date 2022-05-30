@@ -60,7 +60,7 @@ namespace CountryCuisine.Controllers
         {
             // Find the country in the database using `FindAsync` to look it up by id
             var country = await _context.Countries.
-            Where(country => country.Id == id).Include(country => country.Musics).Include(country => country.Recipes).Include(country => country.Movies).ToListAsync();
+            Where(country => country.Id == id).Include(country => country.Musics).Include(country => country.Recipes).Include(country => country.Movies).FirstOrDefaultAsync();
             
 
             // If we didn't find anything, we receive a `null` in return
@@ -71,7 +71,7 @@ namespace CountryCuisine.Controllers
             }
 
             //  Return the country as a JSON object.
-            return Ok(country);
+            return country;
         }
 
         // PUT: api/Countries/5
