@@ -10,9 +10,9 @@ INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
 VALUES ('2022-05-24 14:15:01', 'Uzbekistan', 'https://www.worldatlas.com/r/w960-q80/img/flag/uz-flag.jpg');
 
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")
-VALUES ('2022-05-21 14:28:01', 'Picante de Pollo', 'https://boliviancookbook.com/2012/04/01/picante-de-pollo/', 'https://boliviancookbook.files.wordpress.com/2012/04/plato-2.jpg?w=450&h=600', 'Spicy sauce with chicken', 1);
+VALUES ('2022-05-21 14:28:01', 'Picante de Pollo', 'https://boliviancookbook.com/2012/04/01/picante-de-pollo/', 'https://boliviancookbook.files.wordpress.com/2012/04/plato-2.jpg?w=450&h=600', 'Spicy sauce with chicken, Picante de pollo originates from western Bolivia and is characterized by its aroma and spicy flavor.', 1);
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")
-VALUES ('2022-05-21 14:50:01', 'Vaniljekranse (Danish Butter Cookies)', 'https://nordicfoodliving.com/danish-butter-cookies-vaniljekranse/', 'https://nordicfoodliving.com/wp-content/uploads/2018/12/Recipe-for-Danish-Butter-Cookies-6-805x1024.jpg', 'Christmas butter cookie', 2);
+VALUES ('2022-05-21 14:50:01', 'Vaniljekranse', 'https://nordicfoodliving.com/danish-butter-cookies-vaniljekranse/', 'https://nordicfoodliving.com/wp-content/uploads/2018/12/Recipe-for-Danish-Butter-Cookies-6-805x1024.jpg', 'Vaniljekranse is a Danish butter cookie traditionally served during Christmas holidays, but can also be enjoyed year-round!', 2);
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")
 VALUES ('2022-05-21 15:18:01', 'Igisafuliya', 'https://togetherwomenrise.org/recipes/igisafuliya/', 'https://togetherwomenrise.org/wp-content/uploads/2019/06/RECIPE-Sustained-grantee-Igisafuliya.jpeg', 'A chicken stew with plantain, vegetables, and salt and pepper.', 3);
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")

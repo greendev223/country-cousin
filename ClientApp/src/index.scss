@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Roboto+Flex:opsz,wght@8..144,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Roboto+Flex:opsz,wght@8..144,300&family=Roboto:wght@700&display=swap');
 
 :root {
   font: 16px / 1 'Roboto Flex', sans-serif;
@@ -75,7 +75,7 @@ li {
   padding-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  font: 0.7em/1 'Roboto Flex', sans-serif;
+  font: 0.9em/1 'Roboto Flex', sans-serif;
 }
 
 section div h5 {
@@ -230,11 +230,54 @@ button.addCountry {
   align-items: center;
   font: 3em/1 'Koulen', cursive;
 }
-.country-ml-5 {
+.country-ml {
   margin-left: 5px;
 }
-.country-mr-5 {
+.country-mr {
   margin-right: 5px;
+}
+
+.country-icon-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font: 1.3em/1 'Koulen', cursive;
+}
+.country-icon {
+  color: var(--lite-gray);
+  background-color: black;
+  border-radius: 10px;
+  padding: 7px;
+  border: 1px solid var(--yellow-green);
+  margin-left: 10px;
+}
+.country-icon-text {
+  font: 1.6em/1 'Koulen', cursive;
+  margin-left: 8px;
+}
+.country-descriptionAndImg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.country-img {
+  align-self: center;
+  margin-bottom: 50px;
+}
+.country-h3 {
+  align-self: flex-start;
+  margin-left: 54px;
+  font-weight: bolder;
+}
+
+.country-p {
+  margin-left: 55px;
+  margin-right: 40px;
+  margin-top: -10px;
+  text-align: left;
+}
+.country-mb {
+  margin-bottom: 90px;
 }
 
 // Media Query
@@ -332,15 +375,40 @@ button.addCountry {
 
   // Country page
   .country-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font: 8em/1 'Koulen', cursive;
   }
-  .country-ml-5 {
+  .country-ml {
     margin-left: 15px;
   }
-  .country-mr-5 {
+  .country-mr {
     margin-right: 15px;
+  }
+  .country-icon-container {
+    margin-left: 235px;
+    font: 1.9em/1 'Koulen', cursive;
+  }
+  .country-icon {
+    margin-left: 12px;
+  }
+  .country-icon-text {
+    margin-top: 4px;
+  }
+  .country-h3 {
+    align-self: flex-start;
+    font: 2em /0.5 'Roboto Flex', sans-serif;
+    margin-left: 300px;
+    font-weight: 700;
+  }
+  .country-p {
+    font: 1.3em /1 'Roboto Flex', sans-serif;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: -10px;
+    text-align: left;
+  }
+
+  .country-img {
+    margin-bottom: 60px;
+    margin-top: 20px;
   }
 }
