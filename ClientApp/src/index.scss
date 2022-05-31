@@ -98,18 +98,24 @@ section div button {
   color: var(--lite-gray);
   border-radius: 12px;
   border: 2px solid var(--yellow-green);
-  padding: 7px;
+  padding: 10px;
   margin-top: -25px;
   text-align: center;
-  margin-left: 110px;
-  margin-right: 110px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
-section div div a {
+section div div p {
   display: flex;
-  font: 0.7em /1 'Roboto Flex', sans-serif;
+  font: 0.7em /0.5 'Roboto Flex', sans-serif;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 15px;
   text-decoration: underline;
+}
+.no-underline {
+  text-decoration: none;
+}
+.mt-about {
+  margin-top: -40px;
 }
 
 footer {
@@ -310,7 +316,7 @@ button.addCountry {
     margin-right: 0px;
   }
 
-  a {
+  p {
     margin-right: 15px;
   }
   footer div {
@@ -325,8 +331,9 @@ button.addCountry {
     padding: 5px;
     margin-top: -20px;
     text-align: center;
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 20px;
     // position: fixed;
     // width: 75px;
   }
@@ -340,6 +347,10 @@ button.addCountry {
     margin-right: 80px;
     font: 1.4em/1 'Roboto Flex', sans-serif;
   }
+  .mt-about {
+    margin-top: -70px;
+  }
+
   footer {
     font-size: 14px;
   }

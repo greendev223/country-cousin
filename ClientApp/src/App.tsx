@@ -6,6 +6,7 @@ import { Countries } from './pages/Countries'
 import { Landing } from './pages/Landing'
 import { AddCountry } from './pages/AddCountry'
 import { Country } from './pages/Country'
+import { SignUp } from './pages/SignUp'
 
 export function App() {
   return (
@@ -36,8 +37,9 @@ export function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/:search" element={<Countries />} />
-          <Route path="/add" element={<AddCountry />} />
+          <Route path="/:add" element={<AddCountry />} />
           <Route path="/countries/:id" element={<Country />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </main>
       <footer>

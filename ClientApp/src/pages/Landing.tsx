@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 // import { CountryType } from '../types'
 // import { Country } from './Country'
@@ -33,12 +34,17 @@ export function Landing() {
         <h6>
           experiencing the world <br /> one night-in at a time
         </h6>
-        <button>Random Country</button>
+        <button>Generate Random Country</button>
         <div>
-          <a href="#">sign up</a>
+          <p>login</p>
+          <p className="no-underline">or</p>
+
+          <p>
+            <Link to="/signup">sign up </Link>
+          </p>
         </div>
       </div>
-      <div>
+      <div className="mt-about">
         <article>
           <h5 className="about">
             About us <br /> <br /> Lorem ipsum dolor sit amet, consectetur
