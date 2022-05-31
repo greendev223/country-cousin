@@ -18,6 +18,8 @@ namespace CountryCuisine.Models
         public DbSet<Music> Musics { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
