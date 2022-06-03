@@ -1,22 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
 // import { CountryType } from '../types'
-// import { Country } from './Country'
+// import { Link } from 'react-router-dom'
 
 export function Landing() {
-  // const [randomCountry, setRandomCountry] = useState<CountryType>(
+  // const [randomCountry, setRandomCountry] = useState<CountryType[]>([])
 
-  // )
+  // var selectRandomCountry =
+  //   randomCountry[Math.floor(Math.random() * randomCountry.length)]
 
   // function handleClickRandomCountryButton() {
-  //   setRandomCountry(Math.floor(Math.random() * country.id ))
+  //   setRandomCountry(Math.floor(Math.random() * randomCountry.length))
   // }
+  // console.log(selectRandomCountry.id)
+
+  // console.log(randomCountry.length)
+  // console.log(handleClickRandomCountryButton)
 
   // async function loadOneCountry(id: number | any) {
-  //   const response = await fetch(
-  //     `/api/countries/{}`
-  //   )
+  //   const response = await fetch(`/api/countries/{}`)
 
   //   if (response.ok) {
   //     return response.json()
@@ -36,11 +38,11 @@ export function Landing() {
         </h6>
         <button>Generate Random Country</button>
         <div>
-          <p>login</p>
-          <p className="no-underline">or</p>
+          <p className="landing">login</p>
+          <p className="no-underline landing">or</p>
 
-          <p>
-            <Link to="/signup">sign up </Link>
+          <p className="landing">
+            <Link to="/signup">sign up</Link>
           </p>
         </div>
       </div>

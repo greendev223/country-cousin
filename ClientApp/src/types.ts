@@ -6,7 +6,7 @@ export interface CSSStarsProperties extends CSSProperties {
 
 export type CountryType = {
   id: number | undefined
-  dateAdded: string
+  dateAdded: Date
   name: string
   flagUrl: string
   recipes: RecipeType[]
@@ -50,4 +50,10 @@ export type APIError = {
   title: string
   traceId: string
   type: string
+}
+
+export type NewUserType = {
+  firstName: string
+  email: string
+  password: string
 }

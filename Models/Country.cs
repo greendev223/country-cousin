@@ -7,7 +7,7 @@ namespace CountryCuisine.Models
     public class Country
     {
         public int Id { get; set; }
-        public DateTime DateAdded { get; set; } = DateTime.Now;
+        public DateTime? DateAdded { get; set; } = DateTime.Now;
        
        [Required(ErrorMessage = "You must provide a country name. ")]
         public string Name { get; set; }

@@ -10,7 +10,7 @@ namespace CountryCuisine.Models
         public int Id {get; set;}
 
         [Required(ErrorMessage = "You must provide your first name. ")]
-        public string FirstName {get; set;}
+        public string FirstName {get; set; }
 
         [Required(ErrorMessage = "You must provide your email. ")]
         public string Email {get; set;}

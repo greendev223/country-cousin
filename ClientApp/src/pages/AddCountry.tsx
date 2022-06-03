@@ -22,7 +22,7 @@ export function AddCountry() {
 
   const [newCountry, setNewCountry] = useState<CountryType>({
     id: undefined,
-    dateAdded: '',
+    dateAdded: new Date(),
     name: '',
     flagUrl: '',
     recipes: [],
@@ -32,7 +32,6 @@ export function AddCountry() {
 
   const [errorMessage, setErrorMessage] = useState('')
 
-  // QUESTION: Add form fields for other tables/arrays within CountryType?
   const createNewCountry = useMutation(submitNewCountry, {
     onSuccess: function () {
       history('/')
@@ -41,8 +40,6 @@ export function AddCountry() {
       setErrorMessage(Object.values(apiError.errors).join(' '))
     },
   })
-
-  console.log(errorMessage)
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()

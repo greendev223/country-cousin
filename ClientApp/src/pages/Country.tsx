@@ -17,7 +17,7 @@ async function loadOneCountry(id: string | undefined) {
 // Null Object Pattern
 const NullCountry: CountryType = {
   id: undefined,
-  dateAdded: '',
+  dateAdded: new Date(),
   name: '',
   flagUrl: '',
   recipes: [],

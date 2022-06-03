@@ -36,8 +36,8 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/:search" element={<Countries />} />
-          <Route path="/:add" element={<AddCountry />} />
+          <Route path="/search" element={<Countries />} />
+          <Route path="/add" element={<AddCountry />} />
           <Route path="/countries/:id" element={<Country />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

@@ -15,7 +15,7 @@ export function SingleCountryFromList({ country }: { country: CountryType }) {
         <img
           src={country.flagUrl}
           // QUESTION: HARD CODE ALT
-          alt="image of ${country.name}'s flag"
+          alt={`image of ${country.name}'s flag`}
           width="150"
         />
       </li>
