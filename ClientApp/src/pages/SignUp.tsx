@@ -34,7 +34,7 @@ export function SignUp() {
         history('/')
       },
       onError: function (error: APIError) {
-        setErrorMessage(Object.values(error.errors).join('. '))
+        setErrorMessage(Object.values(error.errors).join(' '))
       },
     }
   )
@@ -61,7 +61,7 @@ export function SignUp() {
       {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
       <form onSubmit={handleFormSubmit} className="addCountry">
         <p className="addCountry">
-          <label htmlFor="firstName">user name</label>
+          <label htmlFor="firstName">first name</label>
           <input
             className="addCountry"
             type="text"
