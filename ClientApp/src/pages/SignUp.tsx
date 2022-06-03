@@ -61,7 +61,7 @@ export function SignUp() {
       {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
       <form onSubmit={handleFormSubmit} className="addCountry">
         <p className="addCountry">
-          <label htmlFor="firstName">first name</label>
+          <label htmlFor="firstName">user name</label>
           <input
             className="addCountry"
             type="text"

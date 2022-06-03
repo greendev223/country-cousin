@@ -62,7 +62,7 @@ export function AddCountry() {
       {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
       <form onSubmit={handleFormSubmit} className="addCountry">
         <p className="addCountry">
-          <label htmlFor="country">name</label>
+          <label htmlFor="country">country name</label>
           <input
             className="addCountry"
             type="text"
