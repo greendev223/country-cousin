@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getUser, isLoggedIn } from '../auth'
 // import { CountryType } from '../types'
 // import { Link } from 'react-router-dom'
 
 export function Landing() {
+  const user = getUser()
   // const [randomCountry, setRandomCountry] = useState<CountryType[]>([])
 
   // var selectRandomCountry =
@@ -30,22 +32,33 @@ export function Landing() {
   return (
     <section>
       <div className="welcome ">
-        <h5>
-          Welcome to <br /> Country Cuisine Night
-        </h5>
+        {isLoggedIn() ? (
+          <h5>
+            Welcome back to <br /> Country Cuisine Night, <br />{' '}
+            {user.firstName}!
+          </h5>
+        ) : (
+          <h5>
+            Welcome to <br /> Country Cuisine Night
+          </h5>
+        )}
         <h6>
           experiencing the world <br /> one night-in at a time
         </h6>
-        <button>Generate Random Country</button>
+        <button className="random-country-button">Random Country</button>
         <div>
-          <p className="landing">
-            <Link to="/login"> login </Link>
-          </p>
-          <p className="no-underline landing">or</p>
+          {isLoggedIn() ? null : (
+            <>
+              <p className="landing">
+                <Link to="/login"> log in </Link>
+              </p>
+              <p className="no-underline landing">or</p>
 
-          <p className="landing">
-            <Link to="/signup">sign up</Link>
-          </p>
+              <p className="landing">
+                <Link to="/signup">sign up</Link>
+              </p>
+            </>
+          )}
         </div>
       </div>
       <div className="mt-about">
