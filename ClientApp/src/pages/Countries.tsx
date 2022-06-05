@@ -35,7 +35,7 @@ export function Countries() {
         </form>
         <article className="countries">
           {countries
-            .sort((a, b) => (a.name > b.name ? 1 : 0))
+            .sort((a, b) => (a.name < b.name ? -1 : 1))
             .map((country) => {
               return (
                 <SingleCountryFromList key={country.id} country={country} />
