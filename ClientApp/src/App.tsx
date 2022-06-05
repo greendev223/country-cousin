@@ -35,6 +35,13 @@ export function App() {
                 href="/search"
               ></a>
             </li>
+            <li>
+              <a
+                className="fa-solid fa-square-plus nav-icon"
+                title="add a country"
+                href="/add"
+              ></a>
+            </li>
             {/* <li>|</li> */}
             {isLoggedIn() ? (
               <li>

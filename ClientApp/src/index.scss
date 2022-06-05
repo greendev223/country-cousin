@@ -45,8 +45,9 @@ header {
   background-color: var(--yellow-green);
 }
 .nav-button {
-  margin-left: 10px;
-  font: 1em /1.3 'Roboto Flex', sans-serif;
+  margin-left: 8px;
+  // font: 1em /1.3 'Roboto Flex', sans-serif;
+  font: 1em /1.3 'Koulen', cursive;
   background-color: black;
   color: var(--lite-gray);
   border-radius: 9px;
@@ -79,7 +80,7 @@ li {
   background-position: 40%;
   background-color: var(--lite-gray);
   background-size: cover;
-  padding: 35px;
+  padding: 20px;
   font: 21px/1 'Roboto Flex', sans-serif;
   display: flex;
   flex-direction: column;
@@ -92,6 +93,7 @@ li {
   margin-left: 20px;
   margin-right: 20px;
   font: 0.9em/1 'Roboto Flex', sans-serif;
+  margin-top: 20px;
 }
 
 section div h5 {
@@ -129,9 +131,6 @@ section div h6 {
 }
 .no-underline {
   text-decoration: none;
-}
-.mt-about {
-  margin-top: -40px;
 }
 
 footer {
@@ -312,7 +311,7 @@ button.addCountry {
     background-attachment: fixed;
   }
   .welcome {
-    padding: 100px;
+    padding: 70px;
     background-size: 90%;
     font: 2.1em/1.2 'Roboto Flex', sans-serif;
   }
@@ -349,18 +348,12 @@ button.addCountry {
     position: relative;
   }
   .about {
-    background-color: rgba(179, 220, 216, 0.379);
-    border: 3px solid var(--yellow-green);
-    padding-bottom: 20px;
-    padding-top: 10px;
-    margin-top: -20px;
+    margin-top: 0;
     margin-left: 80px;
     margin-right: 80px;
     font: 1.4em/1 'Roboto Flex', sans-serif;
   }
-  .mt-about {
-    margin-top: -70px;
-  }
+
   footer {
     font-size: 14px;
   }

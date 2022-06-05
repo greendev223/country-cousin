@@ -61,7 +61,7 @@ export function Landing() {
           )}
         </div>
       </div>
-      <div className="mt-about">
+      <div>
         <article>
           <h5 className="about">
             About us <br /> <br /> Lorem ipsum dolor sit amet, consectetur
