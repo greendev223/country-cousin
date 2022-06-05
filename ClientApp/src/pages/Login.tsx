@@ -78,7 +78,7 @@ export function Login() {
         </p>
         <div>
           <button className="addCountry" name="submit">
-            LOGIN
+            LOG IN
           </button>
         </div>
       </form>
