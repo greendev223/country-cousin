@@ -38,7 +38,9 @@ export function Landing() {
         </h6>
         <button>Generate Random Country</button>
         <div>
-          <p className="landing">login</p>
+          <p className="landing">
+            <Link to="/login"> login </Link>
+          </p>
           <p className="no-underline landing">or</p>
 
           <p className="landing">

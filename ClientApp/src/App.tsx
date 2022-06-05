@@ -7,6 +7,7 @@ import { Landing } from './pages/Landing'
 import { AddCountry } from './pages/AddCountry'
 import { Country } from './pages/Country'
 import { SignUp } from './pages/SignUp'
+import { Login } from './pages/Login'
 
 export function App() {
   return (
@@ -40,6 +41,7 @@ export function App() {
           <Route path="/add" element={<AddCountry />} />
           <Route path="/countries/:id" element={<Country />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <footer>
