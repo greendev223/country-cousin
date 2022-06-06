@@ -12,65 +12,9 @@ import { getUser, isLoggedIn, logout } from './auth'
 import { Footer } from './components/Footer'
 
 export function App() {
-  const user = getUser()
-  function handleLogout() {
-    logout()
-
-    window.location.assign('/')
-  }
   return (
     <div>
-      <header>
-        <Link to="/">
-          <h4>
-            Country <br /> Cuisine <br /> Night
-          </h4>
-        </Link>
-        <nav>
-          <ul>
-            <li>
-              <a
-                className="fa-solid fa-magnifying-glass nav-icon"
-                title="search for a country"
-                href="/search"
-              ></a>
-            </li>
-            <li>
-              <a
-                className="fa-solid fa-square-plus nav-icon"
-                title="add a country"
-                href="/add"
-              ></a>
-            </li>
-            {/* <li>|</li> */}
-            {isLoggedIn() ? (
-              <li>
-                <a
-                  className="fa-solid fa-passport nav-icon nav-passport"
-                  title={`${user.firstName}'s passport`}
-                  href="/"
-                ></a>
-              </li>
-            ) : null}
-            {/* {isLoggedIn() ? <li>|</li> : null} */}
-            <button className="nav-button">
-              {isLoggedIn() ? null : <Link to="/login">Log In</Link>}
-              {isLoggedIn() ? (
-                <a
-                  href="/"
-                  className="link"
-                  onClick={function (event) {
-                    event.preventDefault()
-                    handleLogout()
-                  }}
-                >
-                  Log Out
-                </a>
-              ) : null}
-            </button>
-          </ul>
-        </nav>
-      </header>
+      <header>{isLoggedIn() ? <LoggedInNav /> : <SignedOutNav />}</header>
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -83,5 +27,87 @@ export function App() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+function LoggedInNav() {
+  const user = getUser()
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
+  return (
+    <>
+      <Link to="/">
+        <h4>
+          Country <br /> Cuisine <br /> Night
+        </h4>
+      </Link>
+      <nav>
+        <ul>
+          <li>
+            <a
+              className="fa-solid fa-magnifying-glass nav-icon"
+              title="search for a country"
+              href="/search"
+            ></a>
+          </li>
+          <li>
+            <a
+              className="fa-solid fa-square-plus nav-icon"
+              title="add a country"
+              href="/add"
+            ></a>
+          </li>
+
+          <li>
+            <a
+              className="fa-solid fa-passport nav-icon nav-passport"
+              title={`${user.firstName}'s passport`}
+              href="/"
+            ></a>
+          </li>
+          <button className="nav-button">
+            <a
+              href="/"
+              className="link"
+              onClick={function (event) {
+                event.preventDefault()
+                handleLogout()
+              }}
+            >
+              Log Out
+            </a>
+          </button>
+        </ul>
+      </nav>
+    </>
+  )
+}
+
+function SignedOutNav() {
+  return (
+    <>
+      <Link to="/">
+        <h4>
+          Country <br /> Cuisine <br /> Night
+        </h4>
+      </Link>
+      <nav>
+        <ul>
+          <li>
+            <a
+              className="fa-solid fa-magnifying-glass nav-icon"
+              title="search for a country"
+              href="/search"
+            ></a>
+          </li>
+          <button className="nav-button">
+            <Link to="/login">Log In</Link>
+          </button>
+        </ul>
+      </nav>
+    </>
   )
 }

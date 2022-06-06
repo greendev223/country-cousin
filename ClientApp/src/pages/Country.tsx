@@ -92,14 +92,17 @@ export function Country() {
                 <span className="country-icon-text">EAT</span>
               </div>
               <div className="country-descriptionAndImg">
-                <h3 className="country-h3">{recipe.name}</h3>
+                <h3 className="country-h3">
+                  <a href={recipe.url}>{recipe.name}</a>
+                </h3>
                 <p className="country-p">{recipe.description}</p>
-                <img
-                  className="country-img"
-                  src={recipe.photoUrl}
-                  alt="image of recipe"
-                  width="70%"
-                />
+                <a className=" a-country" href={recipe.url}>
+                  <img
+                    src={recipe.photoUrl}
+                    alt="image of recipe"
+                    width="70%"
+                  />
+                </a>
               </div>
             </div>
           ))}
@@ -116,12 +119,9 @@ export function Country() {
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">{music.artist}</h3>
                 <p className="country-p">{music.description}</p>
-                <img
-                  className="country-img"
-                  src={music.photoUrl}
-                  alt="image of artist"
-                  width="70%"
-                />
+                <a className=" a-country" href={music.url}>
+                  <img src={music.photoUrl} alt="image of artist" width="70%" />
+                </a>
               </div>
             </div>
           ))}
@@ -138,12 +138,9 @@ export function Country() {
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">{movie.title}</h3>
                 <p className="country-p">{movie.description}</p>
-                <img
-                  className="country-img"
-                  src={movie.photoUrl}
-                  alt="image of artist"
-                  width="70%"
-                />
+                <a className=" a-country" href={movie.url}>
+                  <img src={movie.photoUrl} alt="image of artist" width="70%" />
+                </a>
               </div>
             </div>
           ))}
