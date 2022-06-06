@@ -1,13 +1,13 @@
 TRUNCATE TABLE "Countries", "Recipes", "Movies", "Musics" RESTART IDENTITY;
 
-INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
-VALUES ('2022-05-21 14:28:01', 'Bolivia', 'https://www.worldatlas.com/r/w960-q80/img/flag/bo-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
-VALUES ('2022-05-21 14:50:01', 'Denmark', 'https://www.worldatlas.com/r/w960-q80/img/flag/dk-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
-VALUES ('2022-05-21 15:18:01', 'Rwanda', 'https://www.worldatlas.com/r/w960-q80/img/flag/rw-flag.jpg');
-INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl")
-VALUES ('2022-05-24 14:15:01', 'Uzbekistan', 'https://www.worldatlas.com/r/w960-q80/img/flag/uz-flag.jpg');
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
+VALUES ('2022-05-21 14:28:01', 'Bolivia', 'https://www.worldatlas.com/r/w960-q80/img/flag/bo-flag.jpg', 5);
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
+VALUES ('2022-05-21 14:50:01', 'Denmark', 'https://www.worldatlas.com/r/w960-q80/img/flag/dk-flag.jpg', 5);
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
+VALUES ('2022-05-21 15:18:01', 'Rwanda', 'https://www.worldatlas.com/r/w960-q80/img/flag/rw-flag.jpg', 5);
+INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
+VALUES ('2022-05-24 14:15:01', 'Uzbekistan', 'https://www.worldatlas.com/r/w960-q80/img/flag/uz-flag.jpg', 5);
 
 INSERT INTO "Recipes" ("DateAdded", "Name", "Url", "PhotoUrl", "Description", "CountryId")
 VALUES ('2022-05-21 14:28:01', 'Picante de Pollo', 'https://boliviancookbook.com/2012/04/01/picante-de-pollo/', 'https://boliviancookbook.files.wordpress.com/2012/04/plato-2.jpg?w=450&h=600', 'Spicy sauce with chicken, Picante de pollo originates from western Bolivia and is characterized by its aroma and spicy flavor.', 1);
