@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { isLoggedIn } from '../auth'
+import { authHeader, isLoggedIn } from '../auth'
 import { APIError, CountryType } from '../types'
 
 async function submitNewCountry(countryToCreate: CountryType) {
   const response = await fetch('/api/Countries', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      Authorization: authHeader(),
+    },
     body: JSON.stringify(countryToCreate),
   })
 
@@ -33,9 +36,10 @@ export function AddCountry() {
 
   const [errorMessage, setErrorMessage] = useState('')
 
+  // QUESTION: newCountry.id shows undefined
   const createNewCountry = useMutation(submitNewCountry, {
     onSuccess: function () {
-      history('/')
+      history(`../countries/${newCountry.id}`)
     },
     onError: function (apiError: APIError) {
       setErrorMessage(Object.values(apiError.errors).join(' '))

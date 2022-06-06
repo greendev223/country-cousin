@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CountryCuisine.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CountryCuisine.Controllers
 {
@@ -138,8 +141,12 @@ namespace CountryCuisine.Controllers
         // new values for the record.
         //
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Country>> PostCountry(Country country)
         {
+            // Set the UserID to the current user id, this overrides anything the user specifies.
+            country.UserId = GetCurrentUserId();
+
             // Indicate to the database context we want to add this new record
             _context.Countries.Add(country);
             await _context.SaveChangesAsync();
@@ -234,6 +241,13 @@ namespace CountryCuisine.Controllers
         private bool CountryExists(int id)
         {
             return _context.Countries.Any(country => country.Id == id);
+        }
+        
+        // Private helper method to get the JWT claim related to the user ID
+        private int GetCurrentUserId()
+        {
+            // Get the User Id from the claim and then parse it as an integer.
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }

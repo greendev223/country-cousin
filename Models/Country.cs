@@ -18,5 +18,9 @@ namespace CountryCuisine.Models
         public List<Recipe> Recipes { get; set; }
         public List<Movie> Movies { get; set; }
         public List<Music> Musics { get; set; }
+
+        public int UserId {get; set; }
+
+        public User User {get; set; }
     }
 }
