@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
+import { isLoggedIn } from '../auth'
 import { APIError, CountryType } from '../types'
 
 async function submitNewCountry(countryToCreate: CountryType) {
@@ -60,33 +61,35 @@ export function AddCountry() {
   return (
     <div>
       {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
-      <form onSubmit={handleFormSubmit} className="addCountry">
-        <p className="addCountry">
-          <label htmlFor="country">country name</label>
-          <input
-            className="addCountry"
-            type="text"
-            name="name"
-            value={newCountry.name}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <p className="addCountry">
-          <label htmlFor="flagUrl">flag url</label>
-          <input
-            className="addCountry"
-            type="text"
-            name="flagUrl"
-            value={newCountry.flagUrl}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <div>
-          <button className="addCountry" name="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+      {isLoggedIn() ? (
+        <form onSubmit={handleFormSubmit} className="addCountry">
+          <p className="addCountry">
+            <label htmlFor="country">country name</label>
+            <input
+              className="addCountry"
+              type="text"
+              name="name"
+              value={newCountry.name}
+              onChange={handleStringFieldChange}
+            />
+          </p>
+          <p className="addCountry">
+            <label htmlFor="flagUrl">flag url</label>
+            <input
+              className="addCountry"
+              type="text"
+              name="flagUrl"
+              value={newCountry.flagUrl}
+              onChange={handleStringFieldChange}
+            />
+          </p>
+          <div>
+            <button className="addCountry" name="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      ) : null}
     </div>
   )
 }
