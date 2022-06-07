@@ -17,6 +17,7 @@ namespace CountryCuisine.Models
 
         [JsonIgnore]
         public string HashedPassword {get; set;}
+        public string PhotoUrl{get; set;}
 
         public string Password
         {
