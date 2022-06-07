@@ -39,7 +39,7 @@ export function AddCountry() {
   // QUESTION: newCountry.id shows undefined
   const createNewCountry = useMutation(submitNewCountry, {
     onSuccess: function () {
-      history(`../countries/${newCountry.id}`)
+      history(`/countries/${newCountry.id}`)
     },
     onError: function (apiError: APIError) {
       setErrorMessage(Object.values(apiError.errors).join(' '))

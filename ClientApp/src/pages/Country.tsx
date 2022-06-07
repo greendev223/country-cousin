@@ -93,7 +93,9 @@ export function Country() {
               </div>
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">
-                  <a href={recipe.url}>{recipe.name}</a>
+                  <a className="mouse" href={recipe.url}>
+                    {recipe.name}
+                  </a>
                 </h3>
                 <p className="country-p">{recipe.description}</p>
                 <a className=" a-country" href={recipe.url}>
@@ -117,7 +119,9 @@ export function Country() {
                 <span className="country-icon-text">LISTEN</span>
               </div>
               <div className="country-descriptionAndImg">
-                <h3 className="country-h3">{music.artist}</h3>
+                <h3 className="country-h3">
+                  <a href={music.url}>{music.artist}</a>
+                </h3>
                 <p className="country-p">{music.description}</p>
                 <a className=" a-country" href={music.url}>
                   <img src={music.photoUrl} alt="image of artist" width="70%" />
@@ -136,7 +140,9 @@ export function Country() {
                 <span className="country-icon-text">WATCH</span>
               </div>
               <div className="country-descriptionAndImg">
-                <h3 className="country-h3">{movie.title}</h3>
+                <h3 className="country-h3">
+                  <a href={movie.url}>{movie.title}</a>
+                </h3>
                 <p className="country-p">{movie.description}</p>
                 <a className=" a-country" href={movie.url}>
                   <img src={movie.photoUrl} alt="image of artist" width="70%" />

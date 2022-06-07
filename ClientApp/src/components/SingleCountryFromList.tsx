@@ -12,11 +12,13 @@ export function SingleCountryFromList({ country }: { country: CountryType }) {
         <Link to={urlForShowingCountry}>{country.name}</Link>
       </li>
       <li className="flag">
-        <img
-          src={country.flagUrl}
-          alt={`image of ${country.name}'s flag`}
-          width="150"
-        />
+        <Link to={urlForShowingCountry}>
+          <img
+            src={country.flagUrl}
+            alt={`image of ${country.name}'s flag`}
+            width="150"
+          />
+        </Link>
       </li>
     </ul>
   )
