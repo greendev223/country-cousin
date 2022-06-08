@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import { Link } from 'react-router-dom'
 
 import { Countries } from './pages/Countries'
+import { Passport } from './pages/Passport'
 import { Landing } from './pages/Landing'
 import { AddCountry } from './pages/AddCountry'
 import { Country } from './pages/Country'
@@ -23,6 +24,7 @@ export function App() {
           <Route path="/countries/:id" element={<Country />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/passport/:id" element={<Passport />} />
         </Routes>
       </main>
       <Footer />
@@ -65,7 +67,7 @@ function LoggedInNav() {
             <a
               className="fa-solid fa-passport nav-icon nav-passport"
               title={`${user.firstName}'s passport`}
-              href="/"
+              href="/passport"
             ></a>
           </li>
           <button className="nav-button">
