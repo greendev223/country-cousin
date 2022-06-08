@@ -1,33 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+// import { useQuery } from 'react-query'
+import { Link, useNavigate } from 'react-router-dom'
 import { getUser, isLoggedIn } from '../auth'
+import { CountryType } from '../types'
 // import { CountryType } from '../types'
 // import { Link } from 'react-router-dom'
 
 export function Landing() {
   const user = getUser()
-  // const [randomCountry, setRandomCountry] = useState<CountryType[]>([])
+  const history = useNavigate()
+  const [countries, setCountries] = useState<CountryType[]>([])
 
-  // var selectRandomCountry =
-  //   randomCountry[Math.floor(Math.random() * randomCountry.length)]
+  useEffect(() => {
+    const loadCountries = () => {
+      fetch(`/api/countries/`)
+        .then((response) => response.json())
+        .then((data) => {
+          setCountries(data)
+        })
+    }
+    loadCountries()
+  }, [])
 
-  // function handleClickRandomCountryButton() {
-  //   setRandomCountry(Math.floor(Math.random() * randomCountry.length))
-  // }
-  // console.log(selectRandomCountry.id)
+  const randomCountryIds: Array<Number | undefined> = []
 
-  // console.log(randomCountry.length)
-  // console.log(handleClickRandomCountryButton)
+  function getRandomCountryId() {
+    countries.forEach((country) => {
+      randomCountryIds.push(country.id)
+    })
+  }
+  getRandomCountryId()
 
-  // async function loadOneCountry(id: number | any) {
-  //   const response = await fetch(`/api/countries/{}`)
+  async function loadOneCountry() {
+    var randomCountryId =
+      randomCountryIds[Math.floor(Math.random() * randomCountryIds.length)]
+    const response = await fetch('/api/countries/' + randomCountryId)
 
-  //   if (response.ok) {
-  //     return response.json()
-  //   } else {
-  //     throw await response.json()
-  //   }
-  // }
+    if (response.ok) {
+      console.log(response)
+      history('/countries/' + randomCountryId)
+      return response.json()
+    } else {
+      throw await response.json()
+    }
+  }
 
   return (
     <section>
@@ -45,7 +61,9 @@ export function Landing() {
         <h6>
           experiencing the world <br /> one night-in at a time
         </h6>
-        <button className="random-country-button">Random Country</button>
+        <button onClick={loadOneCountry} className="random-country-button">
+          Random Country
+        </button>
         <div>
           {isLoggedIn() ? null : (
             <>

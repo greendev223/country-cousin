@@ -70,8 +70,6 @@ export function Country() {
     () => loadOneCountry(id)
   )
 
-  // QUESTION: What language is the map below?
-  // QUESTION: How to add a href without changing styling?
   return (
     <div>
       <section className="country-container">
