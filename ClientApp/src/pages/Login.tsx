@@ -23,6 +23,7 @@ export function Login() {
   const [user, setUser] = useState<LoginUserType>({
     email: '',
     password: '',
+    photoUrl: '',
   })
 
   const loginUserMutation = useMutation(loginUser, {

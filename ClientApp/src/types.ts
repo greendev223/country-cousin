@@ -56,11 +56,13 @@ export type NewUserType = {
   firstName: string
   email: string
   password: string
+  photoUrl: string
 }
 
 export type LoginUserType = {
   email: string
   password: string
+  photoUrl: string
 }
 
 export type LoginSuccess = {
@@ -70,4 +72,8 @@ export type LoginSuccess = {
     firstName: string
     email: string
   }
+}
+
+export type UploadResponse = {
+  url: string
 }
