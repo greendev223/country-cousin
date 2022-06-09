@@ -82,11 +82,12 @@ export function Landing() {
       <div>
         <article>
           <h5 className="about">
-            About us <br /> <br /> Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa ultricies mi quis hendrerit dolor magna
-            eget est. Viverra tellus in hac habitasse platea dictumst vestibulum
-            rhoncus. Nec ultrices dui sapien eget mi proin.
+            About us <br /> <br /> Country Cuisine Night was born from a passion
+            of geography, food, and art. Travel to a random country and listen
+            to music while you cook a delicious meal. After dinner, snuggle and
+            chill while watching a movie. Add countries to your passport and
+            revisit! I hope your travels bring curiosity and joy to your day.
+            Thank you for stopping by.
           </h5>
         </article>
       </div>
