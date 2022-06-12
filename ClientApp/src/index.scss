@@ -302,6 +302,17 @@ button.addCountry {
   margin-bottom: 90px;
 }
 
+.add-button {
+  font: 0.9em /1 'Koulen', cursive;
+  background-color: black;
+  color: var(--lite-gray);
+  border-radius: 8px;
+  border: 1px solid var(--yellow-green);
+  padding: 8px;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
 // Media Query
 @media (min-width: 768px) {
   body {
@@ -423,8 +434,11 @@ button.addCountry {
     text-align: left;
   }
   .a-country {
-    display: flex;
-    justify-content: center;
     margin-bottom: 70px;
+  }
+  .add-button {
+    font: 1em /1 'Koulen', cursive;
+    padding: 9px;
+    margin-top: -60px;
   }
 }

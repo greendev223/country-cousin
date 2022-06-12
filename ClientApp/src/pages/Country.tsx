@@ -107,6 +107,9 @@ export function Country() {
             </div>
           ))}
         </section>
+        <div className="a-country">
+          <button className="add-button">Add Recipe</button>
+        </div>
       </div>
       <div>
         <section>
@@ -132,6 +135,9 @@ export function Country() {
             </div>
           ))}
         </section>
+        <div className="a-country">
+          <button className="add-button">Add Music</button>
+        </div>
       </div>
       <div className="country-mb">
         <section>
@@ -157,6 +163,9 @@ export function Country() {
             </div>
           ))}
         </section>
+        <div className="a-country">
+          <button className="add-button">Add Movie</button>
+        </div>
       </div>
     </div>
   )
