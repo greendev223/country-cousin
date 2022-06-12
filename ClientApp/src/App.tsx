@@ -67,7 +67,7 @@ function LoggedInNav() {
             <a
               className="fa-solid fa-passport nav-icon nav-passport"
               title={`${user.firstName}'s passport`}
-              href="/passport"
+              href={`/passport/${user.id}`}
             ></a>
           </li>
           <button className="nav-button">
