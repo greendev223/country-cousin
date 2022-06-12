@@ -76,7 +76,7 @@ export function Country() {
         <img
           className="country-container country-mr"
           src={country.flagUrl}
-          // alt="image of flag"
+          alt={`image of ${country.name}'s flag`}
           width="74em"
         />
         <p className="country-ml">{country.name}</p>
@@ -99,7 +99,7 @@ export function Country() {
                 <a className=" a-country" href={recipe.url}>
                   <img
                     src={recipe.photoUrl}
-                    alt="image of recipe"
+                    alt={`image of ${recipe.name}`}
                     width="70%"
                   />
                 </a>
@@ -122,7 +122,11 @@ export function Country() {
                 </h3>
                 <p className="country-p">{music.description}</p>
                 <a className=" a-country" href={music.url}>
-                  <img src={music.photoUrl} alt="image of artist" width="70%" />
+                  <img
+                    src={music.photoUrl}
+                    alt={`image of ${music.artist}`}
+                    width="70%"
+                  />
                 </a>
               </div>
             </div>
@@ -143,7 +147,11 @@ export function Country() {
                 </h3>
                 <p className="country-p">{movie.description}</p>
                 <a className=" a-country" href={movie.url}>
-                  <img src={movie.photoUrl} alt="image of artist" width="70%" />
+                  <img
+                    src={movie.photoUrl}
+                    alt={`image of ${movie.title}`}
+                    width="70%"
+                  />
                 </a>
               </div>
             </div>
