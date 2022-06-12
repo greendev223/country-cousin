@@ -25,7 +25,7 @@ export function AddCountry() {
   const history = useNavigate()
 
   const [newCountry, setNewCountry] = useState<CountryType>({
-    id: undefined,
+    id: Number(),
     dateAdded: new Date(),
     name: '',
     flagUrl: '',
@@ -42,9 +42,12 @@ export function AddCountry() {
   const createNewCountry = useMutation(submitNewCountry, {
     onSuccess: () => {
       // refetch()
-      history('/passport/' + user.id)
+      history(`../passport/${user.id}`)
+      // setNewCountry({ ...newCountry, id: Number(), name: '', flagUrl: '' })
+      // history('/addRecipe', { state: { id: `${newCountry.id}` } })
+      // history(`../countries/${newCountry.id}`)
     },
-    onError: function (apiError: APIError) {
+    onError: (apiError: APIError) => {
       setErrorMessage(Object.values(apiError.errors).join(' '))
     },
   })
