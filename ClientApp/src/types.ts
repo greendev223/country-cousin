@@ -16,7 +16,7 @@ export type CountryType = {
 
 export type MovieType = {
   id: number | undefined
-  dateAdded: string
+  dateAdded: Date
   title: string
   description: string
   url: string
@@ -26,7 +26,7 @@ export type MovieType = {
 
 export type MusicType = {
   id: number | undefined
-  dateAdded: string
+  dateAdded: Date
   artist: string
   description: string
   url: string
@@ -36,7 +36,7 @@ export type MusicType = {
 
 export type RecipeType = {
   id: number | undefined
-  dateAdded: string
+  dateAdded: Date
   name: string
   url: string
   photoUrl: string
@@ -58,6 +58,8 @@ export type NewUserType = {
   password: string
   photoUrl: string
 }
+
+export type NewNewUserType = Omit<NewUserType, 'userId'>
 
 export type LoginUserType = {
   email: string
