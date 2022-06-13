@@ -16,7 +16,7 @@ async function loadOneCountry(id: string | undefined) {
 
 // Null Object Pattern
 const NullCountry: CountryType = {
-  id: undefined,
+  id: Number(),
   dateAdded: new Date(),
   name: '',
   flagUrl: '',
@@ -76,7 +76,7 @@ export function Country() {
         <img
           className="country-container country-mr"
           src={country.flagUrl}
-          alt={`image of ${country.name}'s flag`}
+          // alt={`image of ${country.name}'s flag`}
           width="74em"
         />
         <p className="country-ml">{country.name}</p>
