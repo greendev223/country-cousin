@@ -11,6 +11,7 @@ import { SignUp } from './pages/SignUp'
 import { Login } from './pages/Login'
 import { getUser, isLoggedIn, logout } from './auth'
 import { Footer } from './components/Footer'
+import { AddRecipe } from './pages/AddRecipe'
 
 export function App() {
   return (
@@ -20,11 +21,13 @@ export function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/search" element={<Countries />} />
-          <Route path="/add" element={<AddCountry />} />
+          <Route path="/addCountry" element={<AddCountry />} />
+          <Route path="/countries/:id/addRecipe" element={<AddRecipe />} />
           <Route path="/countries/:id" element={<Country />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/passport/:id" element={<Passport />} />
+          <Route path="*" element={'No Match'} />
         </Routes>
       </main>
       <Footer />
@@ -59,7 +62,7 @@ function LoggedInNav() {
             <a
               className="fa-solid fa-square-plus nav-icon"
               title="add a country"
-              href="/add"
+              href="/addCountry"
             ></a>
           </li>
 
