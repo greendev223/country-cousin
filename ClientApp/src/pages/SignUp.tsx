@@ -1,39 +1,40 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { APIError, NewUserType, UploadResponse } from '../types'
+import { APIError, NewNewUserType, UploadResponse } from '../types'
 import { useDropzone } from 'react-dropzone'
 import { authHeader } from '../auth'
 
-async function submitNewUser(newUser: NewUserType) {
-  const response = await fetch('/api/Users', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(newUser),
-  })
-
-  if (response.ok) {
-    return response.json()
-  } else {
-    throw await response.json()
-  }
-}
-
 export function SignUp() {
-  const history = useNavigate()
-  const [errorMessage, setErrorMessage] = useState('')
+  async function submitNewUser(newUser: NewNewUserType) {
+    const response = await fetch('/api/Users', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newUser),
+    })
 
-  const [newUser, setNewUser] = useState<NewUserType>({
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw await response.json()
+    }
+  }
+
+  const history = useNavigate()
+  const [newUser, setNewUser] = useState<NewNewUserType>({
     firstName: '',
     email: '',
     password: '',
     photoUrl: '',
   })
 
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
+
   const createUserMutation = useMutation(
-    (newUser: NewUserType) => submitNewUser(newUser),
+    (newUser: NewNewUserType) => submitNewUser(newUser),
     {
-      onSuccess: function () {
+      onSuccess: () => {
         history('/login')
       },
       onError: function (error: APIError) {
@@ -48,16 +49,16 @@ export function SignUp() {
     createUserMutation.mutate(newUser)
   }
 
-  function handleStringFieldChange(
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  function handleStringFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value
     const fieldName = event.target.name
-
     const updatedUser = { ...newUser, [fieldName]: value }
-
     setNewUser(updatedUser)
   }
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  })
 
   async function uploadFile(fileToUpload: File) {
     // Create a formData object so we can send this
@@ -84,17 +85,6 @@ export function SignUp() {
     }
   }
 
-  async function onDropFile(acceptedFiles: File[]) {
-    // Do something with the files
-    const fileToUpload = acceptedFiles[0]
-
-    uploadFileMutation.mutate(fileToUpload)
-  }
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: onDropFile,
-  })
-
   const uploadFileMutation = useMutation(uploadFile, {
     onSuccess: function (apiResponse: UploadResponse) {
       const url = apiResponse.url
@@ -105,7 +95,29 @@ export function SignUp() {
     onError: function (error: string) {
       setErrorMessage(error)
     },
+
+    onSettled: function () {
+      setIsUploading(false)
+    },
   })
+
+  async function onDropFile(acceptedFiles: File[]) {
+    // Do something with the files
+    const fileToUpload = acceptedFiles[0]
+
+    setIsUploading(true)
+    uploadFileMutation.mutate(fileToUpload)
+  }
+
+  let dropZoneMessage =
+    'tap or drag a picture here to upload your passport photo!'
+
+  if (isUploading) {
+    dropZoneMessage = 'Uploading...'
+  }
+  if (isDragActive) {
+    dropZoneMessage = 'Drop file here...'
+  }
 
   return (
     <div>
@@ -141,23 +153,26 @@ export function SignUp() {
             onChange={handleStringFieldChange}
           />
         </p>
-        <div className="addCountry">
-          <label htmlFor="photoUrl">user image</label>
-          <div className="file-drop-zone">
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              {isDragActive
-                ? 'Drop the file here ...'
-                : 'tap or drag a picture here to upload your passport photo!'}
-            </div>
+      </form>
+      {newUser.photoUrl ? (
+        <p>
+          <img alt="User Photo" width={200} src={newUser.photoUrl} />
+        </p>
+      ) : null}
+      <div className="addCountry">
+        <label htmlFor="photoUrl">user image</label>
+        <div className="file-drop-zone">
+          <div {...getRootProps()}>
+            <input {...getInputProps()} />
+            {dropZoneMessage}
           </div>
         </div>
-        <div>
-          <button className="addCountry" name="submit">
-            SIGN UP
-          </button>
-        </div>
-      </form>
+      </div>
+      <div>
+        <button className="addCountry" name="submit">
+          SIGN UP
+        </button>
+      </div>
     </div>
   )
 }
