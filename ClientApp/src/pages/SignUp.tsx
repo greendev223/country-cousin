@@ -153,26 +153,26 @@ export function SignUp() {
             onChange={handleStringFieldChange}
           />
         </p>
-      </form>
-      {newUser.photoUrl ? (
-        <p>
-          <img alt="User Photo" width={200} src={newUser.photoUrl} />
-        </p>
-      ) : null}
-      <div className="addCountry">
-        <label htmlFor="photoUrl">user image</label>
-        <div className="file-drop-zone">
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            {dropZoneMessage}
+        {newUser.photoUrl ? (
+          <p>
+            <img alt="User Photo" width={200} src={newUser.photoUrl} />
+          </p>
+        ) : null}
+        <div className="addCountry">
+          <label htmlFor="photoUrl">user image</label>
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <button className="addCountry" name="submit">
-          SIGN UP
-        </button>
-      </div>
+        <div>
+          <button className="addCountry" name="submit">
+            SIGN UP
+          </button>
+        </div>
+      </form>
     </div>
   )
 }

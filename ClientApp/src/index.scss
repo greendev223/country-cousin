@@ -313,6 +313,23 @@ button.addCountry {
   margin-bottom: 30px;
   cursor: pointer;
 }
+
+// Passport Page
+.passport-background {
+  background-image: url(/src/images/passport.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  background-position: 25%;
+  width: 100%;
+  height: 100vh;
+}
+
+h6.passport {
+  font: 1.5em /1 'Koulen', cursive;
+  text-align: center;
+}
+
 // Media Query
 @media (min-width: 768px) {
   body {
