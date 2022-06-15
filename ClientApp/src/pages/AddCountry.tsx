@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { authHeader, getUser, isLoggedIn } from '../auth'
+import { authHeader, isLoggedIn } from '../auth'
 import { APIError, CountryType } from '../types'
 
 async function submitNewCountry(countryToCreate: CountryType) {
@@ -36,16 +36,11 @@ export function AddCountry() {
 
   const [errorMessage, setErrorMessage] = useState('')
 
-  const user = getUser()
-  // QUESTION: newCountry.id shows undefined. look into refetch and other options
-  // for onSuccess
   const createNewCountry = useMutation(submitNewCountry, {
-    onSuccess: () => {
-      // refetch()
-      history(`../passport/${user.id}`)
-      // setNewCountry({ ...newCountry, id: Number(), name: '', flagUrl: '' })
-      // history('/addRecipe', { state: { id: `${newCountry.id}` } })
-      // history(`../countries/${newCountry.id}`)
+    onSuccess: function () {
+      fetch('/api/Countries')
+        .then((response) => response.json())
+        .then((data) => history(`../countries/${data.slice(-1)[0].id}`))
     },
     onError: (apiError: APIError) => {
       setErrorMessage(Object.values(apiError.errors).join(' '))
