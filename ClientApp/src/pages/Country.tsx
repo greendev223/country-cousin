@@ -145,7 +145,9 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <button className="add-button">Add Music</button>
+          <Link to={`/countries/${id}/addmusic`}>
+            <button className="add-button">Add Music</button>
+          </Link>
         </div>
       </div>
       <div className="country-mb">

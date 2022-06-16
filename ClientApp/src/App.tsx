@@ -12,6 +12,7 @@ import { Login } from './pages/Login'
 import { getUser, isLoggedIn, logout } from './auth'
 import { Footer } from './components/Footer'
 import { AddRecipe } from './pages/AddRecipe'
+import { AddMusic } from './pages/AddMusic'
 
 export function App() {
   return (
@@ -23,6 +24,7 @@ export function App() {
           <Route path="/search" element={<Countries />} />
           <Route path="/addCountry" element={<AddCountry />} />
           <Route path="/countries/:id/addRecipe" element={<AddRecipe />} />
+          <Route path="/countries/:id/addMusic" element={<AddMusic />} />
           <Route path="/countries/:id" element={<Country />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
