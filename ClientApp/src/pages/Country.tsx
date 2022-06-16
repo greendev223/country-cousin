@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
-import { CountryType, MovieType, MusicType, RecipeType } from '../types'
+import { CountryType, MusicType, MovieType, RecipeType } from '../types'
 
 async function loadOneCountry(id: string | undefined) {
   const response = await fetch(`/api/countries/${id}`)
@@ -175,7 +175,9 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <button className="add-button">Add Movie</button>
+          <Link to={`/countries/${id}/addmovie`}>
+            <button className="add-button">Add Movie</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -2,23 +2,23 @@ import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { authHeader, isLoggedIn } from '../auth'
-import { APIError, MusicType } from '../types'
+import { APIError, MovieType } from '../types'
 
-export function AddMusic() {
+export function AddMovie() {
   const history = useNavigate()
   const location = useLocation()
   console.log(location)
 
   const { id } = useParams<{ id: string }>()
 
-  async function submitNewMusic(musicToCreate: MusicType) {
-    const response = await fetch(`/api/Countries/${id}/Musics`, {
+  async function submitNewMovie(movieToCreate: MovieType) {
+    const response = await fetch(`/api/Countries/${id}/Movies`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         Authorization: authHeader(),
       },
-      body: JSON.stringify(musicToCreate),
+      body: JSON.stringify(movieToCreate),
     })
 
     if (response.ok) {
@@ -28,10 +28,10 @@ export function AddMusic() {
     }
   }
 
-  const [newMusic, setNewMusic] = useState<MusicType>({
+  const [newMovie, setNewMovie] = useState<MovieType>({
     id: undefined,
     dateAdded: new Date(),
-    artist: '',
+    title: '',
     url: '',
     photoUrl: '',
     description: '',
@@ -42,7 +42,7 @@ export function AddMusic() {
   // const user = getUser()
   // QUESTION: newCountry.id shows undefined. look into refetch and other options
   // for onSuccess
-  const createNewMusic = useMutation(submitNewMusic, {
+  const createNewMovie = useMutation(submitNewMovie, {
     onSuccess: function () {
       fetch('/api/Countries')
         .then((response) => response.json())
@@ -56,7 +56,7 @@ export function AddMusic() {
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    createNewMusic.mutate(newMusic)
+    createNewMovie.mutate(newMovie)
   }
 
   function handleStringFieldChange(
@@ -65,9 +65,9 @@ export function AddMusic() {
     const value = event.target.value
     const fieldName = event.target.name
 
-    const updatedCountry = { ...newMusic, [fieldName]: value }
+    const updatedCountry = { ...newMovie, [fieldName]: value }
 
-    setNewMusic(updatedCountry)
+    setNewMovie(updatedCountry)
   }
 
   return (
@@ -76,42 +76,42 @@ export function AddMusic() {
       {isLoggedIn() ? (
         <form onSubmit={handleFormSubmit} className="addCountry">
           <p className="addCountry">
-            <label htmlFor="country">artist name</label>
+            <label htmlFor="country">movie title</label>
             <input
               className="addCountry"
               type="text"
-              name="artist"
-              value={newMusic.artist}
+              name="title"
+              value={newMovie.title}
               onChange={handleStringFieldChange}
             />
           </p>
           <p className="addCountry">
-            <label htmlFor="url">music url</label>
+            <label htmlFor="url">movie imdb url</label>
             <input
               className="addCountry"
               type="text"
               name="url"
-              value={newMusic.url}
+              value={newMovie.url}
               onChange={handleStringFieldChange}
             />
           </p>
           <p className="addCountry">
-            <label htmlFor="photoUrl">artist photo url</label>
+            <label htmlFor="photoUrl">movie photo url</label>
             <input
               className="addCountry"
               type="text"
               name="photoUrl"
-              value={newMusic.photoUrl}
+              value={newMovie.photoUrl}
               onChange={handleStringFieldChange}
             />
           </p>
           <p className="addCountry">
-            <label htmlFor="url">artist description</label>
+            <label htmlFor="url">movie description</label>
             <input
               className="addCountry"
               type="text"
               name="description"
-              value={newMusic.description}
+              value={newMovie.description}
               onChange={handleStringFieldChange}
             />
           </p>

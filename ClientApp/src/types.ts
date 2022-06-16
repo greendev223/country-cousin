@@ -11,7 +11,7 @@ export type CountryType = {
   flagUrl: string
   recipes: RecipeType[]
   movies: MovieType[]
-  musics: MusicType[]
+  musics: MovieType[]
 }
 
 export type MovieType = {
