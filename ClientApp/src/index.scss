@@ -289,7 +289,7 @@ button.addCountry {
 .country-descriptionAndImg {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 .a-country {
   display: flex;
@@ -320,7 +320,7 @@ button.addCountry {
   border-radius: 8px;
   border: 1px solid var(--yellow-green);
   padding: 8px;
-  margin-top: -30px;
+  margin-top: 0px;
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -468,5 +468,16 @@ h6.passport {
     font: 1em /1 'Koulen', cursive;
     padding: 9px;
     margin-top: -60px;
+  }
+  .country-icon-addToPassport {
+    color: var(--yellow-green);
+    background-color: black;
+    border-radius: 10px;
+    padding: 7px;
+    border: 1px solid var(--yellow-green);
+    margin-left: 10px;
+  }
+  .country-add-to-passport {
+    margin-bottom: 65px;
   }
 }

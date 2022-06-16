@@ -43,8 +43,10 @@ export function AddRecipe() {
   // QUESTION: newCountry.id shows undefined. look into refetch and other options
   // for onSuccess
   const createNewRecipe = useMutation(submitNewRecipe, {
-    onSuccess: () => {
-      history('/')
+    onSuccess: function () {
+      fetch('/api/Countries')
+        .then((response) => response.json())
+        .then(() => history(`../countries/${id}`))
     },
     onError: function (apiError: APIError) {
       setErrorMessage(Object.values(apiError.errors).join(' '))

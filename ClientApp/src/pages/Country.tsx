@@ -86,16 +86,16 @@ export function Country() {
         <div className="country-icon-container">
           <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
           <span className="country-icon-text country-add-to-passport">
-            Add {country.name} my Passport
+            Add to my Passport
           </span>
         </div>
         <section>
+          <div className="country-icon-container">
+            <i className="fa-solid fa-utensils country-icon"> </i>
+            <span className="country-icon-text">EAT</span>
+          </div>
           {recipes?.map((recipe) => (
             <div key={recipe.id}>
-              <div className="country-icon-container">
-                <i className="fa-solid fa-utensils country-icon"> </i>
-                <span className="country-icon-text">EAT</span>
-              </div>
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">
                   <a className="mouse" href={recipe.url}>
@@ -122,12 +122,12 @@ export function Country() {
       </div>
       <div>
         <section>
+          <div className="country-icon-container">
+            <i className="fa-solid fa-music country-icon"> </i>
+            <span className="country-icon-text">LISTEN</span>
+          </div>
           {musics?.map((music) => (
             <div key={music.id}>
-              <div className="country-icon-container">
-                <i className="fa-solid fa-music country-icon"> </i>
-                <span className="country-icon-text">LISTEN</span>
-              </div>
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">
                   <a href={music.url}>{music.artist}</a>
@@ -150,12 +150,12 @@ export function Country() {
       </div>
       <div className="country-mb">
         <section>
+          <div className="country-icon-container">
+            <i className="fa-solid fa-video country-icon"> </i>
+            <span className="country-icon-text">WATCH</span>
+          </div>
           {movies?.map((movie) => (
             <div key={movie.id}>
-              <div className="country-icon-container">
-                <i className="fa-solid fa-video country-icon"> </i>
-                <span className="country-icon-text">WATCH</span>
-              </div>
               <div className="country-descriptionAndImg">
                 <h3 className="country-h3">
                   <a href={movie.url}>{movie.title}</a>
