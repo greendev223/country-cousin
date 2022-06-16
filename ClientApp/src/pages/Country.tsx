@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useQuery } from 'react-query'
-import { useParams } from 'react-router'
+import { useMutation, useQuery } from 'react-query'
+import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { authHeader, getUserId } from '../auth'
 
 import { CountryType, MusicType, MovieType, RecipeType } from '../types'
 
@@ -18,6 +19,7 @@ async function loadOneCountry(id: string | undefined) {
 // Null Object Pattern
 const NullCountry: CountryType = {
   id: Number(),
+  userId: Number(),
   dateAdded: new Date(),
   name: '',
   flagUrl: '',
@@ -70,6 +72,38 @@ export function Country() {
     ['one-country', id],
     () => loadOneCountry(id)
   )
+
+  // Delete a country
+  const history = useNavigate()
+
+  async function handleDelete(id: number | undefined) {
+    if (id === undefined) {
+      return
+    }
+
+    const response = await fetch(`/api/Countries/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: authHeader(),
+      },
+    })
+
+    if (response.ok) {
+      return response.json()
+    } else {
+      throw await response.json()
+    }
+  }
+
+  const deleteCountry = useMutation(handleDelete, {
+    onSuccess: function () {
+      history('/')
+    },
+    onError: function () {
+      console.log('oops!')
+    },
+  })
 
   return (
     <div>
@@ -178,6 +212,19 @@ export function Country() {
           <Link to={`/countries/${id}/addmovie`}>
             <button className="add-button">Add Movie</button>
           </Link>
+        </div>
+        <div className="a-country">
+          {country.userId === getUserId() ? (
+            <button
+              className="add-button"
+              onClick={function (event) {
+                event.preventDefault()
+                deleteCountry.mutate(country.id)
+              }}
+            >
+              Delete Country
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

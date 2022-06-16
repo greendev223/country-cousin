@@ -9,6 +9,8 @@ using CountryCuisine.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using CountryCuisine.Models;
 
 namespace CountryCuisine.Controllers
 {
@@ -163,6 +165,7 @@ namespace CountryCuisine.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteCountry(int id)
         {
             // Find this country by looking for the specific id
@@ -171,6 +174,19 @@ namespace CountryCuisine.Controllers
             {
                 // There wasn't a country with that id so return a `404` not found
                 return NotFound();
+            }
+
+               if (country.UserId != GetCurrentUserId())
+            {
+                // Make a custom error response
+                var response = new
+                {
+                    status = 401,
+                    errors = new List<string>() { "You are not Authorized to delete this country!" }
+                };
+
+                // Return our error with the custom response
+                return Unauthorized(response);
             }
 
             // Tell the database we want to remove this record
