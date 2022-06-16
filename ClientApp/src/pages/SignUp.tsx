@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { APIError, NewUserType, UploadResponse } from '../types'
-import { useDropzone } from 'react-dropzone'
-import { authHeader } from '../auth'
+import { APIError, NewUserType } from '../types'
 
 export function SignUp() {
   async function submitNewUser(newUser: NewUserType) {
@@ -29,7 +27,7 @@ export function SignUp() {
   })
 
   const [errorMessage, setErrorMessage] = useState('')
-  const [isUploading, setIsUploading] = useState(false)
+  // const [isUploading, setIsUploading] = useState(false)
 
   const createUserMutation = useMutation(
     (newUser: NewUserType) => submitNewUser(newUser),
@@ -56,68 +54,68 @@ export function SignUp() {
     setNewUser(updatedUser)
   }
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: onDropFile,
-  })
+  // const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  //   onDrop: onDropFile,
+  // })
 
-  async function uploadFile(fileToUpload: File) {
-    // Create a formData object so we can send this
-    // to the API that is expecting some form data.
-    const formData = new FormData()
+  // async function uploadFile(fileToUpload: File) {
+  //   // Create a formData object so we can send this
+  //   // to the API that is expecting some form data.
+  //   const formData = new FormData()
 
-    // Append a field that is the form upload itself
-    formData.append('file', fileToUpload)
+  //   // Append a field that is the form upload itself
+  //   formData.append('file', fileToUpload)
 
-    // Use fetch to send an authorization header and
-    // a body containing the form data with the file
-    const response = await fetch('/api/Uploads', {
-      method: 'POST',
-      headers: {
-        Authorization: authHeader(),
-      },
-      body: formData,
-    })
+  //   // Use fetch to send an authorization header and
+  //   // a body containing the form data with the file
+  //   const response = await fetch('/api/Uploads', {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: authHeader(),
+  //     },
+  //     body: formData,
+  //   })
 
-    if (response.ok) {
-      return response.json()
-    } else {
-      throw 'Unable to upload image!'
-    }
-  }
+  //   if (response.ok) {
+  //     return response.json()
+  //   } else {
+  //     throw 'Unable to upload image!'
+  //   }
+  // }
 
-  const uploadFileMutation = useMutation(uploadFile, {
-    onSuccess: function (apiResponse: UploadResponse) {
-      const url = apiResponse.url
+  // const uploadFileMutation = useMutation(uploadFile, {
+  //   onSuccess: function (apiResponse: UploadResponse) {
+  //     const url = apiResponse.url
 
-      setNewUser({ ...newUser, photoUrl: url })
-    },
+  //     setNewUser({ ...newUser, photoUrl: url })
+  //   },
 
-    onError: function (error: string) {
-      setErrorMessage(error)
-    },
+  //   onError: function (error: string) {
+  //     setErrorMessage(error)
+  //   },
 
-    onSettled: function () {
-      setIsUploading(false)
-    },
-  })
+  //   onSettled: function () {
+  //     setIsUploading(false)
+  //   },
+  // })
 
-  async function onDropFile(acceptedFiles: File[]) {
-    // Do something with the files
-    const fileToUpload = acceptedFiles[0]
+  // async function onDropFile(acceptedFiles: File[]) {
+  //   // Do something with the files
+  //   const fileToUpload = acceptedFiles[0]
 
-    setIsUploading(true)
-    uploadFileMutation.mutate(fileToUpload)
-  }
+  //   setIsUploading(true)
+  //   uploadFileMutation.mutate(fileToUpload)
+  // }
 
-  let dropZoneMessage =
-    'tap or drag a picture here to upload your passport photo!'
+  // let dropZoneMessage =
+  //   'tap or drag a picture here to upload your passport photo!'
 
-  if (isUploading) {
-    dropZoneMessage = 'Uploading...'
-  }
-  if (isDragActive) {
-    dropZoneMessage = 'Drop file here...'
-  }
+  // if (isUploading) {
+  //   dropZoneMessage = 'Uploading...'
+  // }
+  // if (isDragActive) {
+  //   dropZoneMessage = 'Drop file here...'
+  // }
 
   return (
     <div>
@@ -158,7 +156,7 @@ export function SignUp() {
             <img alt="User Photo" width={200} src={newUser.photoUrl} />
           </p>
         ) : null}
-        <div className="addCountry">
+        {/* <div className="addCountry">
           <label htmlFor="photoUrl">user image</label>
           <div className="file-drop-zone">
             <div {...getRootProps()}>
@@ -166,7 +164,7 @@ export function SignUp() {
               {dropZoneMessage}
             </div>
           </div>
-        </div>
+        </div> */}
         <div>
           <button className="addCountry" name="submit">
             SIGN UP

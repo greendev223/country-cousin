@@ -337,10 +337,47 @@ button.addCountry {
 }
 
 h6.passport {
-  font: 1.5em /1 'Koulen', cursive;
+  font: 2em /0 'Koulen', cursive;
   text-align: center;
 }
 
+h3.passport {
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 40px;
+  font-size: 1.4em;
+  font-weight: 900;
+}
+.addPhotoToPassport-icon {
+  color: var(--yellow-green);
+  background-color: black;
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid var(--yellow-green);
+  margin-left: 10px;
+}
+
+.addPhotoToPassport-icon-text {
+  font: 1.1em/1 'Koulen', cursive;
+  margin-left: 8px;
+}
+
+.addImage {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 15px;
+  margin-top: 40px;
+  font-size: 1.4em;
+}
+
+.file-drop-zone {
+  display: flex;
+  margin-top: 30px;
+  font-size: 0.9em;
+  border: 1px solid var(--turquoise);
+}
 // Media Query
 @media (min-width: 768px) {
   body {
@@ -479,5 +516,10 @@ h6.passport {
   }
   .country-add-to-passport {
     margin-bottom: 65px;
+  }
+
+  //PASSPORT PAGE
+  h6.passport {
+    font: 3em /0 'Koulen', cursive;
   }
 }

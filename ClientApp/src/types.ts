@@ -59,10 +59,9 @@ export type NewUserType = {
   photoUrl: string
 }
 
-// export type NewNewUserType = Omit<NewUserType, 'userId'>
-
 export type LoginUserType = {
   email: string
+  firstName: string
   password: string
   photoUrl: string
 }
@@ -73,6 +72,7 @@ export type LoginSuccess = {
     id: number
     firstName: string
     email: string
+    photoUrl: string
   }
 }
 
