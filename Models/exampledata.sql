@@ -1,5 +1,8 @@
 TRUNCATE TABLE "Countries", "Recipes", "Movies", "Musics" RESTART IDENTITY;
 
+INSERT INTO "Users" ("Id", "FirstName", "Email", "HashedPassword", "PhotoUrl")
+VALUES (5, 'lauren', 'lmmccolloch@gmail.com', 'AQAAAAEAACcQAAAAEAWDVC1ZKjpAgV74NOhGMJcUtCnvyYc2TNyD7Kd/u6OCsj+slsn2WL0IJvzk4p2cWw==', null  );
+
 INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
 VALUES ('2022-05-21 14:28:01', 'Bolivia', 'https://www.worldatlas.com/r/w960-q80/img/flag/bo-flag.jpg', 5);
 INSERT INTO "Countries" ("DateAdded", "Name", "FlagUrl", "UserId")
