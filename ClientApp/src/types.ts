@@ -6,6 +6,7 @@ export interface CSSStarsProperties extends CSSProperties {
 
 export type CountryType = {
   id: number | undefined
+  userId: number | undefined
   dateAdded: Date
   name: string
   flagUrl: string

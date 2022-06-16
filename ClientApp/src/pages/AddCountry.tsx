@@ -26,6 +26,7 @@ export function AddCountry() {
 
   const [newCountry, setNewCountry] = useState<CountryType>({
     id: Number(),
+    userId: Number(),
     dateAdded: new Date(),
     name: '',
     flagUrl: '',

@@ -22,6 +22,7 @@ export function Login() {
 
   const [user, setUser] = useState<LoginUserType>({
     email: '',
+    firstName: '',
     password: '',
     photoUrl: '',
   })
