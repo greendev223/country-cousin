@@ -59,7 +59,7 @@ export type NewUserType = {
   photoUrl: string
 }
 
-export type NewNewUserType = Omit<NewUserType, 'userId'>
+// export type NewNewUserType = Omit<NewUserType, 'userId'>
 
 export type LoginUserType = {
   email: string

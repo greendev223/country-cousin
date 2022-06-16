@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
-import { APIError, NewNewUserType, UploadResponse } from '../types'
+import { APIError, NewUserType, UploadResponse } from '../types'
 import { useDropzone } from 'react-dropzone'
 import { authHeader } from '../auth'
 
 export function SignUp() {
-  async function submitNewUser(newUser: NewNewUserType) {
+  async function submitNewUser(newUser: NewUserType) {
     const response = await fetch('/api/Users', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -21,7 +21,7 @@ export function SignUp() {
   }
 
   const history = useNavigate()
-  const [newUser, setNewUser] = useState<NewNewUserType>({
+  const [newUser, setNewUser] = useState<NewUserType>({
     firstName: '',
     email: '',
     password: '',
@@ -32,7 +32,7 @@ export function SignUp() {
   const [isUploading, setIsUploading] = useState(false)
 
   const createUserMutation = useMutation(
-    (newUser: NewNewUserType) => submitNewUser(newUser),
+    (newUser: NewUserType) => submitNewUser(newUser),
     {
       onSuccess: () => {
         history('/login')
