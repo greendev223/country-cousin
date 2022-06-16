@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { CountryType, MovieType, MusicType, RecipeType } from '../types'
 
@@ -82,6 +83,12 @@ export function Country() {
         <p className="country-ml">{country.name}</p>
       </section>
       <div>
+        <div className="country-icon-container">
+          <i className="fa-solid fa-square-plus country-icon-addToPassport country-add-to-passport"></i>
+          <span className="country-icon-text country-add-to-passport">
+            Add {country.name} my Passport
+          </span>
+        </div>
         <section>
           {recipes?.map((recipe) => (
             <div key={recipe.id}>
@@ -108,7 +115,9 @@ export function Country() {
           ))}
         </section>
         <div className="a-country">
-          <button className="add-button">Add Recipe</button>
+          <Link to={`/countries/${id}/addrecipe`}>
+            <button className="add-button"> Add Recipe</button>
+          </Link>
         </div>
       </div>
       <div>

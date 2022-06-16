@@ -275,6 +275,17 @@ button.addCountry {
   font: 1.6em/1 'Koulen', cursive;
   margin-left: 8px;
 }
+.country-icon-addToPassport {
+  color: var(--yellow-green);
+  background-color: black;
+  border-radius: 10px;
+  padding: 7px;
+  border: 1px solid var(--yellow-green);
+  margin-left: 10px;
+}
+.country-add-to-passport {
+  margin-bottom: 40px;
+}
 .country-descriptionAndImg {
   display: flex;
   flex-direction: column;
