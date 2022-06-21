@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CountryCuisine.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220531211738_CreateUserModel")]
-    partial class CreateUserModel
+    [Migration("20220621214214_CreateAll")]
+    partial class CreateAll
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace CountryCuisine.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("DateAdded")
+                    b.Property<DateTime?>("DateAdded")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("FlagUrl")
@@ -39,7 +39,12 @@ namespace CountryCuisine.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Countries");
                 });
@@ -158,9 +163,26 @@ namespace CountryCuisine.Migrations
                     b.Property<string>("HashedPassword")
                         .HasColumnType("text");
 
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CountryCuisine.Models.Country", b =>
+                {
+                    b.HasOne("CountryCuisine.Models.User", "User")
+                        .WithMany("Countries")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CountryCuisine.Models.Movie", b =>
@@ -203,6 +225,11 @@ namespace CountryCuisine.Migrations
                     b.Navigation("Musics");
 
                     b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("CountryCuisine.Models.User", b =>
+                {
+                    b.Navigation("Countries");
                 });
 #pragma warning restore 612, 618
         }

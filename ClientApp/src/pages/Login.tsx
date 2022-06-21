@@ -25,6 +25,7 @@ export function Login() {
     firstName: '',
     password: '',
     photoUrl: '',
+    countries: [],
   })
 
   const loginUserMutation = useMutation(loginUser, {

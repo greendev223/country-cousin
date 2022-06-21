@@ -26,6 +26,7 @@ export function AddUserImage() {
     email: '',
     password: '',
     photoUrl: '',
+    countries: [],
   })
 
   const [errorMessage, setErrorMessage] = useState('')

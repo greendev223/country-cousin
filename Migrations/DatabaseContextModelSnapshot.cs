@@ -175,7 +175,7 @@ namespace CountryCuisine.Migrations
             modelBuilder.Entity("CountryCuisine.Models.Country", b =>
                 {
                     b.HasOne("CountryCuisine.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Countries")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -223,6 +223,11 @@ namespace CountryCuisine.Migrations
                     b.Navigation("Musics");
 
                     b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("CountryCuisine.Models.User", b =>
+                {
+                    b.Navigation("Countries");
                 });
 #pragma warning restore 612, 618
         }

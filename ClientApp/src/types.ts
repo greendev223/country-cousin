@@ -65,6 +65,7 @@ export type LoginUserType = {
   firstName: string
   password: string
   photoUrl: string
+  countries: CountryType[]
 }
 
 export type LoginSuccess = {

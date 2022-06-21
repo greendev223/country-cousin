@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+
 
 namespace CountryCuisine.Models
 {
@@ -18,6 +20,9 @@ namespace CountryCuisine.Models
         [JsonIgnore]
         public string HashedPassword {get; set;}
         public string PhotoUrl{get; set;}
+
+        public List<Country> Countries {get; set;} 
+        // public Country Country { get; set; }
 
         public string Password
         {

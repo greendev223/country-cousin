@@ -4,23 +4,46 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CountryCuisine.Migrations
 {
-    public partial class CreateCountry : Migration
+    public partial class CreateAll : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    HashedPassword = table.Column<string>(type: "text", nullable: true),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DateAdded = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    FlagUrl = table.Column<string>(type: "text", nullable: false)
+                    FlagUrl = table.Column<string>(type: "text", nullable: false),
+                    UserId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Countries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Countries_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,6 +119,11 @@ namespace CountryCuisine.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Countries_UserId",
+                table: "Countries",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Movies_CountryId",
                 table: "Movies",
                 column: "CountryId");
@@ -109,6 +137,12 @@ namespace CountryCuisine.Migrations
                 name: "IX_Recipes_CountryId",
                 table: "Recipes",
                 column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -124,6 +158,9 @@ namespace CountryCuisine.Migrations
 
             migrationBuilder.DropTable(
                 name: "Countries");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

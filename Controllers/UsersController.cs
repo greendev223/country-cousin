@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CountryCuisine.Models;
 
+
 namespace CountryCuisine.Controllers
 {
     // All of these routes will be at the base URL:     /api/Users
@@ -57,6 +58,24 @@ namespace CountryCuisine.Controllers
                 return BadRequest(response);
             }
  
+        }
+
+        [HttpPost("{id}/Countries")]
+        public async Task<ActionResult<Country>> PostCountryToUserPage(int id, Country country)
+        {
+            {
+                var userCountry = await _context.Countries.FindAsync(id);
+                if (userCountry == null)
+                {
+                    return NotFound();
+                }
+                country.UserId = userCountry.Id;
+
+                _context.Countries.Add(country);
+                await _context.SaveChangesAsync();
+
+                return Ok(country);
+            }
         }
 
     }
