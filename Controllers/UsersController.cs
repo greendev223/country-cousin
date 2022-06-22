@@ -20,7 +20,7 @@ namespace CountryCuisine.Controllers
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
-        // Constructor that recives a reference to your database context
+        // Constructor that receives a reference to your database context
         // and stores it in _context for you to use in your API methods
         public UsersController(DatabaseContext context)
         {
@@ -60,21 +60,23 @@ namespace CountryCuisine.Controllers
  
         }
 
-        [HttpPost("{id}/Countries")]
-        public async Task<ActionResult<Country>> PostCountryToUserPage(int id, Country country)
+        [HttpPost("{id}/Countries/{countryId}")]
+        public async Task<ActionResult<Country>> PostCountryToUserPage(int id, int countryId)
         {
             {
-                var userCountry = await _context.Countries.FindAsync(id);
+                var userCountry = await _context.Countries.FindAsync(countryId);
+                var currentUser = await _context.Users.FindAsync(id);
+                Console.WriteLine("**********", userCountry);
                 if (userCountry == null)
                 {
                     return NotFound();
                 }
-                country.UserId = userCountry.Id;
+                // country.Id = userCountry.Id;
 
-                _context.Countries.Add(country);
+                currentUser.Countries.Add(userCountry);
+                // _context.Users.Countries.Add(country);
                 await _context.SaveChangesAsync();
-
-                return Ok(country);
+                return Ok(currentUser);
             }
         }
 
